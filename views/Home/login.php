@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html >
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- As 3 meta tags acima *devem* vir em primeiro lugar dentro do `head`; qualquer outro conteúdo deve vir *após* essas tags -->
-    <title>Login</title>
+    
+    <title>Pagina de Login</title>
 
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
@@ -24,6 +24,7 @@
         <p id="profile-name" class="profile-name-card"></p>
 
         <form class="form-signin">
+
           <span class="reauth-email" id="reauth-email"></span>
           <input type="text" id="nome" class="form-control" placeholder="Nombre" required autofocus>
           <input type="password" id="senha" class="form-control" placeholder="Contraseña" required>
@@ -33,7 +34,7 @@
               <input type="checkbox" value="remember-me"> Recordarme
             </label>
           </div>
-          <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
+          <button class="btn btn-lg btn-danger btn-block btn-signin" type="submit">Entrar</button>
 
         </form>
 
