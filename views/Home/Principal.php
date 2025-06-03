@@ -23,7 +23,7 @@
         >
           <i class="las la-bars"></i>
         </button>
-        <h5 class="nav-link">Qafya</h5>
+        <h5 class="nav-link">Santa María</h5>
         <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown dropleft">
