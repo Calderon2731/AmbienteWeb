@@ -42,7 +42,7 @@
 
           <span class="reauth-email" id="reauth-email"></span>
 
-          <input type="text" id="nome" class="form-control" name = "txtnombreUsuario" placeholder="Nombre" >
+          <input type="text" id="nome" class="form-control" name = "txtnombreUsuario" placeholder="Nombre de Usuario" >
 
           <input type="password" id="senha"  name="txtContrasena" class="form-control" placeholder="Contraseña" >
           
@@ -58,7 +58,7 @@
         <a href="#" class="forgot-password">
           Olvidó la contraseña ?
         </a>
-        <a href="#" class="forgot-password"> Registrar </a>
+        <a href="Registro.php" class="forgot-password"> Registrar </a>
 
       </div>
 

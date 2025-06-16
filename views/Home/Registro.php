@@ -39,11 +39,29 @@
                  
           <span class="reauth-email" id="reauth-email"></span>
 
-          <input type="text" id="nome" class="form-control" name = "txtnombreDeUsuario" placeholder="Nombre" >
+          <div>
+             <input type="text" id="nome" class="form-control" name = "txtnombreUsuario" placeholder="Nombre Usuario" >
+          </div>
 
-          <input type="password" id="senha"  name="txtcontrasena" class="form-control" placeholder="Contraseña" >
+          <div>
+             <span class="reauth-email" id="reauth-email"></span>
+             <input type="tel" id="nome" class="form-control" name = "txtnumeroTelefono" placeholder="Número de telefono" >
+          </div>
+
+
+          <div class ="">
+             <span class="reauth-email" id="reauth-email"></span>
+             <span class="reauth-email" id="reauth-email"></span>
+                <input type="email" id="Correo" class="form-control" name = "txtCorreo" placeholder="Correo Electrónico" >
+          </div>
+
+          <div>
+             <span class="reauth-email" id="reauth-email"></span>
+            <input type="password" id="senha"  name="txtContrasena" class="form-control" placeholder="Contraseña" >
+          </div>
           
           
+
           <div id="remember" class="checkbox">
             <label>
               <input type="checkbox" name= "txtRecordarme"value="remember-me"> Recordarme
@@ -51,14 +69,14 @@
           </div>
 
 
-          <button class="btn btn-lg btn-danger btn-block btn-signin "  name = "btnEntrarInicioSesion"type="submit">Entrar</button>
+          <button class="btn btn-lg btn-danger btn-block btn-signin " id="btnRegistroUsuario" name ="btnRegistroUsuario"type="submit">Registrar</button>
 
         </form>
 
         <a href="#" class="forgot-password">
           Olvidó la contraseña ?
         </a>
-        <a href="#" class="forgot-password"> Registrar </a>
+        <a href="login.php" class="forgot-password">Iniciar Sesion</a>
 
       </div>
 

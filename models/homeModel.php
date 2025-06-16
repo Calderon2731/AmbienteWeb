@@ -6,4 +6,9 @@
     return false;
   }
 
+  function RegistrarUsuarioModel($nombreUsuario,$numeroTelefono , $correo, $contrasena){
+
+    //enviar los datos a registrar a la base de datos!!
+  }
+
  ?>
