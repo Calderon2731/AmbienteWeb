@@ -1,6 +1,6 @@
 <?php
 
-  include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/Controllers/homeController.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/Controllers/homeController.php'
 
 ?>
 
@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Pagina de Login</title>
+    <title>Pagina de Registro</title>
 
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
@@ -21,11 +21,10 @@
     
   </head>
   <body>
-
     <div class="container">
       <div class="card card-container">
-        <h2>Acceso</h2>
-        
+        <h2>Registro</h2>
+
         <img id="profile-img" class="profile-img-card" src="../imagenes/avatar_2x.png" alt=""/>
         <p id="profile-name" class="profile-name-card"></p>
 
@@ -37,20 +36,21 @@
           echo '<div class="alert alert-warning text-center">' . $_POST["txtMensaje"] . '</div>';
           }
           ?>
-        
-
-
+                 
           <span class="reauth-email" id="reauth-email"></span>
 
-          <input type="text" id="nome" class="form-control" name = "txtnombreUsuario" placeholder="Nombre" >
+          <input type="text" id="nome" class="form-control" name = "txtnombreDeUsuario" placeholder="Nombre" >
 
-          <input type="password" id="senha"  name="txtContrasena" class="form-control" placeholder="Contraseña" >
+          <input type="password" id="senha"  name="txtcontrasena" class="form-control" placeholder="Contraseña" >
+          
           
           <div id="remember" class="checkbox">
             <label>
               <input type="checkbox" name= "txtRecordarme"value="remember-me"> Recordarme
             </label>
           </div>
+
+
           <button class="btn btn-lg btn-danger btn-block btn-signin "  name = "btnEntrarInicioSesion"type="submit">Entrar</button>
 
         </form>
