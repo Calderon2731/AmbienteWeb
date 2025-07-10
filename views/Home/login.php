@@ -12,21 +12,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <title>Pagina de Login</title>
-
-    <!-- Bootstrap  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"   
       crossorigin="anonymous">  
-    <link href="../estilos/index3.css" rel="stylesheet">
+      <link href="../estilos/index3.css" rel="stylesheet">
+    
     
   </head>
   <body>
 
-    <div class="container">
-      <div class="card card-container">
-        <h2>Acceso</h2>
+    <div class="container-fluid">
+
+      <div class="card card-container ">
+        <h2>bienvenido</h2>
         
-        <img id="profile-img" class="profile-img-card" src="../imagenes/avatar_2x.png" alt=""/>
+        
         <p id="profile-name" class="profile-name-card"></p>
 
         <form class="form-signin" action = "" method = "POST">
@@ -38,8 +38,6 @@
           }
           ?>
         
-
-
           <span class="reauth-email" id="reauth-email"></span>
 
           <input type="text" id="nome" class="form-control" name = "txtnombreUsuario" placeholder="Nombre de Usuario" >
@@ -59,7 +57,6 @@
           Olvidó la contraseña ?
         </a>
         <a href="Registro.php" class="forgot-password"> Registrar </a>
-
       </div>
 
     </div>

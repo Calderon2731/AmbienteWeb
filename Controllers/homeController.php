@@ -5,10 +5,10 @@
  //logear 
  if(isset($_POST["btnEntrarInicioSesion"]))
  {
-    $nombreUsuario = $_POST["txtnombreUsuario"];
-     $contrasena =$_POST["txtContrasena"];
+     $correo = $_POST["txtCorreo"];
+     $contrasenna =$_POST["txtContrasenna"];
     
-    $respuesta = ValidaInicioSesionModel($nombreUsuario, $contrasena);
+    $respuesta = ValidaInicioSesionModel($correo, $contrasenna);
 
     if($respuesta){
         header("location: ../../views/Home/Principal.php");
@@ -20,19 +20,19 @@
 
  //boton de registrar Usuario
  if(isset($_POST["btnRegistroUsuario"]))
- {
-    $numeroTelefono = $_POST["txtnumeroTelefono"];
-    $nombreUsuario = $_POST["txtnombreUsuario"];
-    $contrasena =$_POST["txtContrasena"];
+ { 
+    $nombre = $_POST["txtNombre"];
     $correo = $_POST["txtCorreo"];
-    
-    $respuesta = RegistrarUsuarioModel($nombreUsuario,$numeroTelefono , $correo, $contrasena);
+    $identificacion = $_POST["txtIdentificacion"];
+    $contrasenna =$_POST["txtContrasenna"];
+
+    $respuesta = RegistrarUsuarioModel($nombre,$correo,$identificacion, $contrasenna);
 
     if($respuesta){
         header("location: ../../views/Home/login.php");
     }
     else{
-        $_POST["txtMensaje"] = "su informacion fue Registrada de manera Correcta";
+        $_POST["txtMensaje"] = "su informacion NO fue Registrada ";
     }
  }
  

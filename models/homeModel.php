@@ -1,6 +1,10 @@
  <?php
+
+ include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/models/connect.php';
+
+
   
-  function ValidaInicioSesionModel($nombreUsuario,$contrasena){
+  function ValidaInicioSesionModel($correo,$contrasenna){
     //envia los datos a validar a la Base de datos!!
      try
         {
@@ -14,16 +18,15 @@
         }
         catch(Exception $error)
         {
-            
             return null;
         }
   }
 
-  function RegistrarUsuarioModel($nombreUsuario,$numeroTelefono , $correo, $contrasena){
+  function RegistrarUsuarioModel($nombre, $correo, $identificacion , $contrasenna){
 
     //enviar los datos a registrar a la base de datos!!
-      try
-        {
+      //try
+        //{
             $context = OpenDB();
 
             $sp = "CALL RegistrarUsuario('$nombre', '$correo', '$identificacion', '$contrasenna')";
@@ -31,12 +34,11 @@
 
             CloseDB($context);            
             return $respuesta;
-        }
-        catch(Exception $error)
-        {
-            
+        //}
+        //catch(Exception $error)
+        //{
             return false;
-        }
+       // }
   }
 
  ?>

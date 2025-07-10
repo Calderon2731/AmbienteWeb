@@ -40,24 +40,24 @@
           <span class="reauth-email" id="reauth-email"></span>
 
           <div>
-             <input type="text" id="nome" class="form-control" name = "txtnombreUsuario" placeholder="Nombre Usuario" >
+             <input type="text" id="txtNombre" class="form-control" name = "txtNombre" placeholder="Nombre" >
           </div>
 
           <div>
              <span class="reauth-email" id="reauth-email"></span>
-             <input type="tel" id="nome" class="form-control" name = "txtnumeroTelefono" placeholder="Número de telefono" >
+             <input type="tel" id="txtIdentificacion" class="form-control" name = "txtIdentificacion" placeholder="Identificacion" >
           </div>
 
 
           <div class ="">
              <span class="reauth-email" id="reauth-email"></span>
              <span class="reauth-email" id="reauth-email"></span>
-                <input type="email" id="Correo" class="form-control" name = "txtCorreo" placeholder="Correo Electrónico" >
+                <input type="email" id="txtCorreo" class="form-control" name = "txtCorreo" placeholder="Correo" >
           </div>
 
           <div>
              <span class="reauth-email" id="reauth-email"></span>
-            <input type="password" id="senha"  name="txtContrasena" class="form-control" placeholder="Contraseña" >
+            <input type="password" id="txtContrasenna"  name="txtContrasenna" class="form-control" placeholder="Contraseña" >
           </div>
           
           
@@ -73,7 +73,7 @@
 
         </form>
 
-        <a href="#" class="forgot-password">
+        <a href="#" class="forgot-password ">
           Olvidó la contraseña ?
         </a>
         <a href="login.php" class="forgot-password">Iniciar Sesion</a>
