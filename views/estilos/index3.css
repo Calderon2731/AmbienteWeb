@@ -1,7 +1,8 @@
 body, html {
     height: 100%;
     background-repeat: no-repeat;
-    background-color: #cccccc; 
+    background-color: #cccccc;
+     
 }
 
 h1 {
@@ -34,7 +35,7 @@ h2 {
  * Card component
  */
 .card {
-    background-color: rgb(163, 155, 155);
+    background-color: rgb(255, 255, 255) ;
     /* just in case there no content*/
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
@@ -43,7 +44,7 @@ h2 {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 2px 2px rgb(255, 255, 255);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
@@ -65,7 +66,7 @@ h2 {
 
 .reauth-email {
     display: block;
-    color: #404040;
+    color: #ffffff;
     line-height: 2;
     margin-bottom: 10px;
     font-size: 14px;
@@ -100,7 +101,7 @@ h2 {
 }
 
 .form-signin .form-control:focus {
-    border-color: rgb(207, 2, 115);
+    border-color: rgb(238, 235, 237);
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
@@ -108,7 +109,7 @@ h2 {
 
 .btn-signin {
     /*background-color: #4d90fe; */
-    background-color: rgb(104, 145, 162);
+    background-color: rgb(225, 242, 249);
     /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
     padding: 0px;
     font-weight: 700;
@@ -127,12 +128,12 @@ h2 {
 .btn-signin:hover,
 .btn-signin:active,
 .btn-signin:focus {
-    background-color: rgb(216, 21, 184);
+    background-color: rgb(232, 232, 232);
 }
 
 
 .forgot-password {
-    color: rgb(248, 1, 1);
+    color: rgb(255, 247, 247);
 }
 
 .forgot-password:hover,
@@ -141,5 +142,5 @@ h2 {
 
 .forgot-password:focus{
 
-    color: rgb(248, 1, 1);
+    color: rgb(232, 224, 224);
 }

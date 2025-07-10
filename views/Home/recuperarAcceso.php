@@ -1,8 +1,6 @@
 <?php
-
   include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/Controllers/homeController.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/views/layoutExterno.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +14,7 @@
     <div class="container-fluid">
 
       <div class="card card-container ">
-        <h2>bienvenido</h2>
+        <h2>Recuperar Acceso</h2>
         
         
         <p id="profile-name" class="profile-name-card"></p>
@@ -30,28 +28,24 @@
           }
           ?>
         
-          <span class="reauth-email" id="reauth-email"></span>
-
-          <input type="text" id="txtCorreo" class="form-control" name = "txtCorreo" placeholder="Correo" >
-
-          <input type="password" id="txtContrasenna"  name="txtContrasenna" class="form-control" placeholder="Contraseña" >
+            <span class="reauth-email" id="reauth-email"></span>
+             <input type="text" id="txtCorreo" class="form-control" name = "txtCorreo" placeholder="Correo" >
+            <span class="reauth-email" id="reauth-email"></span>
           
-          <div id="remember" class="checkbox">
-            <label>
-              <input type="checkbox" name= "txtRecordarme"value="remember-me"> Recordarme
-            </label>
-          </div>
-          <button class="btn btn-lg btn-danger btn-block btn-signin "  name = "btnEntrarInicioSesion"type="submit">Entrar</button>
+
+          <button class="btn btn-lg btn-danger btn-block btn-signin"id="btnRecuperarAcceso" name = "btnRecuperarAcceso" type="submit">Entrar</button>
 
         </form>
-
-        <div class = "Recuperar">
-         Olvidó la contraseña? <a href="recuperarAcceso.php" class="forgot-password"><b>Recuperar</b></a>
-        </div>
 
         <div class = "OlvidarContra">
          no tienes una cuenta? <a href="Registro.php" class="forgot-password"> <b>Registrarse</b></a>
         </div>
+
+         <div >
+          tiene una cuenta? <a href="login.php" class="forgot-password">Iniciar Sesion</a>
+        </div>
+
+
 
       </div>
 

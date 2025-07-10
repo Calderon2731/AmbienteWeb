@@ -10,5 +10,18 @@
         mysqli_close($context);
     }
 
+    function RegistrarError($error){
+
+        $context = OpenDB();
+
+        $message = mysqli_real_escape_string($context, $error -> getMessage());
+
+          $sp = "CALL RegistrarError('$message')";
+          $context -> query($sp);
+
+        CloseDB($context);
+
+    }
+
 
 ?>
