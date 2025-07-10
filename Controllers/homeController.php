@@ -1,10 +1,10 @@
 <?php
-     include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/models/homeModel.php';
-     include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/Controllers/utilidadesController.php';
+    include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/models/homeModel.php';
+    include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/Controllers/utilidadesController.php';
 
  //logear 
- if(isset($_POST["btnEntrarInicioSesion"]))
- {
+if(isset($_POST["btnEntrarInicioSesion"]))
+{
     $correo = $_POST["txtCorreo"];
     $contrasenna =$_POST["txtContrasenna"];
     
@@ -16,11 +16,11 @@
     else{
         $_POST["txtMensaje"] = "su informacion no fue guardada";
     }
- }
+}
 
  //boton de registrar Usuario
- if(isset($_POST["btnRegistroUsuario"]))
- { 
+if(isset($_POST["btnRegistroUsuario"]))
+{ 
     $nombre = $_POST["txtNombre"];
     $correo = $_POST["txtCorreo"];
     $identificacion = $_POST["txtIdentificacion"];
@@ -34,13 +34,12 @@
     else{
         $_POST["txtMensaje"] = "su informacion NO fue Registrada ";
     }
- }
- 
+} 
 
  //recuperar acceso
 
- if(isset($_POST["btnRecuperarAcceso"]))
- {
+if(isset($_POST["btnRecuperarAcceso"]))
+{
     //solo recibe el correo 
     $correo = $_POST["txtCorreo"];
     //manda los datos al modelo mediante la variable respuesta
@@ -53,12 +52,12 @@
       //pone en un array los datos 
         $datos = mysqli_fetch_array($respuesta);
 
-         $contrasenna = generarContrasena();// genera una contra aleatoria 
+        $contrasenna = generarContrasena();// genera una contra aleatoria 
 
          //actualizar esa contra en la base de datos en el modelo
-         $respuestaActualizacion = ActualizarContrasennaModel($datos["IdUsuario"], $contrasenna);
+        $respuestaActualizacion = ActualizarContrasennaModel($datos["IdUsuario"], $contrasenna);
 
-         if($respuestaActualizacion){// si la actualizacion fue exitosa, se pone un mensaje al usuario
+        if($respuestaActualizacion){// si la actualizacion fue exitosa, se pone un mensaje al usuario
             $mensaje = "<html><body>
             Estimad@" . $datos["Nombre"] . ' <br><br>
             se ha generado un codigo temporal de seguridad: XXXXXXX <br>
@@ -71,11 +70,11 @@
             if( $respuestaCorreo){
                 header("location: ../../Views/Home/login.php");
             }
-         }
+        }
         
     }else{
         $_POST["txtMensaje"] = "su informacion NO fue Recuperada";
     }
- }
+}
 
 ?>
