@@ -16,7 +16,7 @@
     <div class="container-fluid">
 
       <div class="card card-container ">
-        <h2>bienvenido</h2>
+        <h2>Bienvenido</h2>
         
         
         <p id="profile-name" class="profile-name-card"></p>

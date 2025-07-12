@@ -60,7 +60,7 @@ if(isset($_POST["btnRecuperarAcceso"]))
         if($respuestaActualizacion){// si la actualizacion fue exitosa, se pone un mensaje al usuario
             $mensaje = "<html><body>
             Estimad@" . $datos["Nombre"] . ' <br><br>
-            se ha generado un codigo temporal de seguridad: XXXXXXX <br>
+            se ha generado un codigo temporal de seguridad: ' . $contrasenna . ' <br>
             Recuerde realizar el cambio de contra una vez ingrese al sistema</body>
             </html>';
 

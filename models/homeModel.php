@@ -67,7 +67,7 @@
         {
             $context = OpenDB();
 
-            $sp = "CALL ActualizarContrasenna('$idUsuario','$contrasenna')";
+            $sp = "CALL actualizaContrasenna('$idUsuario','$contrasenna')";
             $respuesta = $context -> query($sp);
 
             CloseDB($context);            
