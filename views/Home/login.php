@@ -31,8 +31,9 @@
           ?>
         
           <span class="reauth-email" id="reauth-email"></span>
-
-          <input type="text" id="txtCorreo" class="form-control" name = "txtCorreo" placeholder="Correo" >
+          
+            <input type="text" id="txtCorreo" class="form-control  ti-email" name = "txtCorreo" placeholder="Correo" >
+         
 
           <input type="password" id="txtContrasenna"  name="txtContrasenna" class="form-control" placeholder="Contraseña" >
           
