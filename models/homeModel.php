@@ -1,6 +1,6 @@
  <?php
-
- include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/models/connect.php';
+//quitar el "-1" de "AmbienteWeb-1"
+ include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb-1/models/connect.php';
 
 
   
@@ -80,5 +80,22 @@
         }
 
   }
+function RegistrarCita($idusuario, $fecha, $hora, $motivo, $medico){
+    try
+    {
+        $context = OpenDB();
+
+        $sp = "CALL RegistrarCita('$idusuario', '$fecha', '$hora', '$motivo', '$medico')";
+        $respuesta = $context->query($sp);
+
+        CloseDB($context);            
+        return $respuesta;
+    }
+    catch(Exception $error)
+    {
+        RegistrarError($error);
+        return false;
+    }
+}
 
  ?>
