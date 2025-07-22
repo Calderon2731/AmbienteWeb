@@ -1,6 +1,6 @@
 CREATE DATABASE  IF NOT EXISTS `dbproyectoweb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `dbproyectoweb`;
--- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: dbproyectoweb
 -- ------------------------------------------------------
@@ -123,7 +123,7 @@ CREATE TABLE `tusuario` (
 
 LOCK TABLES `tusuario` WRITE;
 /*!40000 ALTER TABLE `tusuario` DISABLE KEYS */;
-INSERT INTO `tusuario` VALUES (1,'dada','ken@fada','1231312','9092');
+INSERT INTO `tusuario` VALUES (1,'dada','ken@fada','1231312','G0BIWEJI');
 /*!40000 ALTER TABLE `tusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,6 +145,33 @@ BEGIN
       UPDATE tusuario
       SET Contrasenna = pContrasenna
 	 WHERE IdUsuario = pIdUsuario;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `consultarInfoUsuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultarInfoUsuario`(pIdUsuario bigint(11))
+BEGIN
+
+SELECT IdUsuario,
+       Nombre,
+       Correo,
+       Identificacion,
+       Contrasenna
+       FROM tusuario
+       WHERE  IdUsuario = pIdUsuario;
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -283,4 +310,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-21  1:08:02
+-- Dump completed on 2025-07-22  2:05:13

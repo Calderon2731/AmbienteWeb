@@ -1,6 +1,6 @@
 <?php
-  include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb1/Controllers/homeController.php';
-  include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb1/views/layoutExterno.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/Controllers/homeController.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/views/layoutExterno.php';
 ?>
 
 <!DOCTYPE html>

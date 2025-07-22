@@ -1,6 +1,14 @@
 <?php
     
     function showHeader(){
+
+        $nombreUsuario = "";
+        if(isset($_SESSION["Nombre"])){
+
+            $nombreUsuario = $_SESSION["Nombre"];
+
+        }
+
         echo '
             <header>
                 <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
@@ -17,14 +25,6 @@
                     <div class="collapse navbar-collapse" id="navbarContent">
                         <ul class="navbar-nav ml-auto">
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"
-                                    ><img
-                                    class="rounded-circle"
-                                    src="../imagenes/person.jpg"
-                                /></a>
-                            </li>
-
                             <li class="nav-item dropdown dropleft">
                                 <a
                                     class="nav-link profile-dropdown"
@@ -33,16 +33,25 @@
                                     data-toggle="dropdown"
                                     aria-haspopup="true"
                                     aria-expanded="false"
-                                    >jane doe
+                                    >'.$nombreUsuario.'
                                 </a>
+
                                 <div
                                     class="dropdown-menu shadow-lg"
                                     aria-labelledby="profile-dropdown">
+
+                                    <a class="dropdown-item" href="../usuario/ConsultarPerfil.php"
+                                    ><i class="las la-user mr-2"></i>perfil
+                                    </a>
+
                                     <a class="dropdown-item" href="#"
-                                    ><i class="las la-user mr-2"></i>profile</a
-                                    ><a class="dropdown-item" href="#"
-                                    ><i class="las la-cog mr-2"></i>settings</a
-                                    >
+                                    ><i class="las la-lock mr-2"></i>Contraseña
+                                    </a>
+
+                                    <a class="dropdown-item" href="#"
+                                    ><i class="las la-sign-out-alt mr-2"></i>Cerrar sesión
+                                    </a>
+
                                 </div>
                             </li>
                         </ul>

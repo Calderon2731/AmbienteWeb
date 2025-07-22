@@ -1,19 +1,26 @@
 <?php
-session_start();
-//quitar el "-1" de "AmbienteWeb-1"
-    include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb-1/models/homeModel.php';
-    include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb-1/Controllers/utilidadesController.php';
+
+
+    include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/models/homeModel.php';
+    include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/Controllers/utilidadesController.php';
+
+    if(session_status() == PHP_SESSION_NONE){
+    session_start();             //inicia las variables de session 
+    }
 
  //logear 
-if(isset($_POST["btnEntrarInicioSesion"]))
-{
+    if(isset($_POST["btnEntrarInicioSesion"]))
+    {
     $correo = $_POST["txtCorreo"];
     $contrasenna = $_POST["txtContrasenna"];
 
     $respuesta = ValidaInicioSesionModel($correo, $contrasenna);
 
     if($respuesta != null && $respuesta->num_rows > 0){
+
         $datosUsuario = mysqli_fetch_assoc($respuesta);  // Obtener datos del usuario
+
+
         $_SESSION["IdUsuario"] = $datosUsuario["IdUsuario"];  // Guardar IdUsuario en sesión
         $_SESSION["Nombre"] = $datosUsuario["Nombre"];
 

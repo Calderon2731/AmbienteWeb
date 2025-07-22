@@ -1,6 +1,6 @@
  <?php
 //quitar el "-1" de "AmbienteWeb-1"
- include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb-1/models/connect.php';
+ include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/models/connect.php';
 
 
   
