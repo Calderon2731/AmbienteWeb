@@ -16,22 +16,19 @@
 
     $respuesta = ValidaInicioSesionModel($correo, $contrasenna);
 
-    if($respuesta != null && $respuesta->num_rows > 0){
+    if($respuesta != null && $respuesta->num_rows > 0)
+        {
+        $datos = mysqli_fetch_array($respuesta);  // Obtener datos del usuario
 
-        $datosUsuario = mysqli_fetch_assoc($respuesta);  // Obtener datos del usuario
-
-
-        $_SESSION["IdUsuario"] = $datosUsuario["IdUsuario"];  // Guardar IdUsuario en sesión
-        $_SESSION["Nombre"] = $datosUsuario["Nombre"];
+        $_SESSION["IdUsuario"] = $datos["IdUsuario"];  // Guardar IdUsuario en sesión
+        $_SESSION["Nombre"] = $datos["Nombre"];
 
         header("Location: ../../views/Home/Principal.php");
-        exit();
     }
     else{
-     
+        
         $_SESSION["txtMensaje"] = "Correo o contraseña incorrectos";
-        header("Location: ../../views/Home/login.php");
-        exit();
+
     }
 }
 

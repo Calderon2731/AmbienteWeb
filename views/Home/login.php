@@ -21,7 +21,7 @@
 
         <form class="form-signin" action = "" method = "POST">
 
-         <?php // este php muestra el mensaje de "su respuesta no fue validada" por el POST del txtMensaje
+          <?php // este php muestra el mensaje de "su respuesta no fue validada" por el POST del txtMensaje
           if(isset($_POST["txtMensaje"]))
          {
           echo '<div class="alert alert-warning text-center">' . $_POST["txtMensaje"] . '</div>';

@@ -82,11 +82,12 @@
     }
 
     function addJS(){
-        echo'
+        echo
+        '
         <script src="../Funciones/jquery.min.js"></script>
         <script src="../Funciones/bootstrap.bundle.min.js"></script>
-        <script src="../Funciones/global.js"></script>';
+        <script src="../Funciones/global.js"></script>
+        <script src="../Funciones/comunes.js"></script>
+        ';
     }
-
-    
 ?>
