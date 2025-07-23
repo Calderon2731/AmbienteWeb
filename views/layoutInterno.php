@@ -79,15 +79,29 @@
             <link rel="icon" href="../imagenes/qafya-icon.ico" />
          </head>';
     }
-
+ function ShowFooter()
+    {
+        echo 
+            '<footer class="footer text-center">
+                Derechos Reservados © Santa Maria
+            </footer>';
+    }
     function menu(){
         echo'
         <main>
-        <div class="side-nav shadow-sm">
-        </div>
-        <div class="main-content"><div class="container-fluid"></div></div>
-        </main>';
+       <div class="side-nav shadow-sm">
+        <ul class="list-group list-group-flush">
+          <a class="list-group-item" href="../Cita/citas.php"
+            ><i class="las la-user-injured la-lw"></i>Solicitar Cita</a
+          >
+           <a class="list-group-item" href="../Conocenos/conocenos.php"
+            ><i class="las la-user-injured la-lw"></i>Conocenos</a
+          >
+              </div>
+      <div class="main-content"><div class="container-fluid"></div></div>
+           </main>';
     }
+    
 
     function addJS(){
         echo
