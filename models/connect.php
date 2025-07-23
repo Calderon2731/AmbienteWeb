@@ -2,7 +2,7 @@
 //Por hacer base de datos
   function OpenDB()
 {
-  return mysqli_connect("127.0.0.1", "root", "123", "dbproyectoweb", 3307);
+  return mysqli_connect("127.0.0.1", "root", "", "dbproyectoweb", 3307);
 }
 
 

@@ -1,6 +1,6 @@
 <?php
     include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Controllers/homeController.php';
-     
+    
     if(session_status() == PHP_SESSION_NONE)
     {
         session_start();
@@ -66,9 +66,10 @@
                     </div>
                 </nav>
         </header>';
-    }
+}
     
-    function Addcss(){
+
+function Addcss(){
         echo '
         <head>
             <title>pagina</title>
@@ -78,32 +79,17 @@
             <link rel="stylesheet" href="../estilos/layout.css" />
             <link rel="icon" href="../imagenes/qafya-icon.ico" />
          </head>';
-    }
- function ShowFooter()
+}
+
+function ShowFooter()
     {
         echo 
             '<footer class="footer text-center">
                 Derechos Reservados © Santa Maria
             </footer>';
-    }
-    function menu(){
-        echo'
-        <main>
-       <div class="side-nav shadow-sm">
-        <ul class="list-group list-group-flush">
-          <a class="list-group-item" href="../Cita/citas.php"
-            ><i class="las la-user-injured la-lw"></i>Solicitar Cita</a
-          >
-           <a class="list-group-item" href="../Conocenos/conocenos.php"
-            ><i class="las la-user-injured la-lw"></i>Conocenos</a
-          >
-              </div>
-      <div class="main-content"><div class="container-fluid"></div></div>
-           </main>';
-    }
-    
+}
 
-    function addJS(){
+function addJS(){
         echo
         '
         <script src="../Funciones/jquery.min.js"></script>
@@ -111,5 +97,27 @@
         <script src="../Funciones/global.js"></script>
         <script src="../Funciones/site/comunes.js"></script>
         ';
-    }
+}
+
+
+function menu(){
+    echo' 
+    <main> 
+        <div class="side-nav">
+            <ul class="list-group list-group-flush">
+                <a class="list-group-item active" href=" ../Home/citas.php" data-toggle="tooltip" data-placement="bottom" title="citas">
+                <i class="las la-stethoscope "></i><span>citas</span></a>
+
+                <a class="list-group-item" href="../Conocenos/conocenos.php" data-toggle="tooltip" data-placement="bottom" title="Patients">
+                <i class="las la-phone"></i><span>Nosotros</span></a>         
+                
+                <a class="list-group-item" href="../usuario/ConsultarPerfil.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>Perfil</span></a>
+                <hr class="divider">
+            </ul>
+        </div>
+    </main>';
+}
+
+
 ?>

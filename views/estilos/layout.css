@@ -482,7 +482,7 @@ main {
   min-height: 100vh;
 }
 main .side-nav, main .main-content {
-  margin-top: 70px;
+  margin-top: 0px;
 }
 main .side-nav {
   width: 17.5%;

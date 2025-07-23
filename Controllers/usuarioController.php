@@ -36,4 +36,38 @@
             $_POST["txtMensaje"] = "Su información no fue actualizada, hubo un error";
         }
     }
+
+    if(isset($_POST["btnActualizarContrasenna"]))
+    {
+        $idUsuario = $_SESSION["IdUsuario"];
+        $contrasennaNueva = $_POST["txtContrasennaNueva"];
+        $contrasennaAnterior = $_POST["txtContrasennaAnterior"];
+        $confirmar = $_POST["txtConfirmar"];
+        $contrasennaSesion = $_SESSION["Contrasenna"];
+        // si la contraseña actual es distinta de la anterior, muestra el mensaje
+        if($contrasennaSesion != $contrasennaAnterior)
+        {
+            $_POST["txtMensaje"] = "Su contraseña anterior esta equivocada.";
+            return;
+        }
+
+        //si es diferente de lo confirmado, no deja y suelta el mensaje
+        if($contrasennaNueva != $confirmar)
+        {
+            $_POST["txtMensaje"] = "La contraseña nueva esta equivocada, confirme de nuevo";
+            return;
+        }
+
+        $respuesta = ActualizarContrasennaModel($idUsuario, $contrasennaNueva);
+
+        if($respuesta)
+        {
+            $_SESSION["Contrasenna"] = $contrasennaNueva;
+            $_POST["txtMensaje"] = "Su contraseña se actualizó correctamente.";
+        }
+        else
+        {
+            $_POST["txtMensaje"] = "Su contraseña no fue actualizada correctamente.";
+        }
+    }
 ?>   

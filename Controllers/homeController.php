@@ -18,18 +18,18 @@
     $respuesta = ValidaInicioSesionModel($correo, $contrasenna);
 
     if($respuesta != null && $respuesta->num_rows > 0)
-        {
+    {
 
         $datos = mysqli_fetch_array($respuesta);  // Obtener datos del usuario
-        
-        $_SESSION["IdUsuario"] = $datos["IdUsuario"];  // Guardar IdUsuario en sesión
-        $_SESSION["Nombre"] = $datos["Nombre"];
 
+        $_SESSION["Nombre"] = $datos["Nombre"];
+        $_SESSION["IdUsuario"] = $datos["IdUsuario"];  // Guardar IdUsuario en sesión
+        $_SESSION["Contrasenna"] = $datos["Contrasenna"];
         header("Location: ../../views/Home/Principal.php");
     }
     else{
         
-        $_SESSION["txtMensaje"] = "Correo o contraseña incorrectos";
+        $_POST["txtMensaje"] = "Correo o contraseña incorrectos";
 
     }
 }
@@ -77,8 +77,7 @@ if (isset($_POST["btnRecuperarAcceso"])) {
             $respuestaCorreo = EnviarCorreo('Recuperar Acceso', $mensaje, $correo);
 
             if ($respuestaCorreo) {
-                header("Location: ../../Views/Home/login.php");
-                
+                header("Location: ../../Views/Home/login.php");             
             }
         }
     } else {
@@ -92,7 +91,7 @@ if (isset($_POST["btnAgendarCita"])) {
     $hora = $_POST["txtHora"];
     $motivo = $_POST["txtMotivo"];
     $medico = $_POST["txtMedico"];
-   $idusuario = $_SESSION["IdUsuario"];
+    $idusuario = $_SESSION["IdUsuario"];
 
     // Bloque de depuración
     echo "<pre>";
