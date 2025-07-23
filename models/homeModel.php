@@ -1,7 +1,6 @@
  <?php
-//quitar el "-1" de "AmbienteWeb-1"
- include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/models/connect.php';
 
+ include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/models/connect.php';
 
   
   function ValidaInicioSesionModel($correo,$contrasenna){
@@ -40,7 +39,7 @@
         {
           RegistrarError($error);
             return false;
-        }
+        };
   }
 
   function validarCorreoModel($correo){

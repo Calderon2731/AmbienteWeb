@@ -1,6 +1,10 @@
 <?php
-session_start();
+
     include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Views/layoutInterno.php';
+    
+    if (session_status() == PHP_SESSION_NONE) {
+  session_start();             //inicia las variables de session 
+}
 ?>
 
 <!DOCTYPE html>

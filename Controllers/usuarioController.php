@@ -2,6 +2,10 @@
     include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/models/usuarioModel.php';
     include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/models/homeModel.php';
 
+       if(session_status() == PHP_SESSION_NONE)
+    {
+        session_start();
+    }
 
     function consultarInfoUsuario($idUsuario)
     {
@@ -25,7 +29,6 @@
 
         if($respuesta)
         {
-            $_SESSION["Nombre"] = $nombre;
             $_POST["txtMensaje"] = "Su información fue actualizada";
         }
         else

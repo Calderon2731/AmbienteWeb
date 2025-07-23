@@ -1,8 +1,16 @@
 <?php
+    include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Controllers/homeController.php';
+     
+    if(session_status() == PHP_SESSION_NONE)
+    {
+        session_start();
+    }
     
+
     function showHeader(){
 
         $nombreUsuario = "";
+        
         if(isset($_SESSION["Nombre"])){
 
             $nombreUsuario = $_SESSION["Nombre"];
@@ -12,8 +20,8 @@
         echo '
             <header>
                 <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
-                    <a class="navbar-brand" href
-                    ><img src="" alt= "LOGO" /></a> <button
+                    <a class="navbar-brand" href = "../Home/Principal.php"
+                    ><img src="../Imagenes/logoDePrueba.png" alt= "LOGO" /></a> <button
 
                     class="navbar-toggler"
                     type="button"
@@ -44,7 +52,7 @@
                                     ><i class="las la-user mr-2"></i>perfil
                                     </a>
 
-                                    <a class="dropdown-item" href="#"
+                                    <a class="dropdown-item" href="../usuario/cambiarContrasenna.php"
                                     ><i class="las la-lock mr-2"></i>Contraseña
                                     </a>
 
@@ -87,7 +95,7 @@
         <script src="../Funciones/jquery.min.js"></script>
         <script src="../Funciones/bootstrap.bundle.min.js"></script>
         <script src="../Funciones/global.js"></script>
-        <script src="../Funciones/comunes.js"></script>
+        <script src="../Funciones/site/comunes.js"></script>
         ';
     }
 ?>

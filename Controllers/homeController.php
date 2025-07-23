@@ -5,6 +5,7 @@
     include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/Controllers/utilidadesController.php';
 
     if(session_status() == PHP_SESSION_NONE){
+        
     session_start();             //inicia las variables de session 
     }
 
@@ -18,8 +19,9 @@
 
     if($respuesta != null && $respuesta->num_rows > 0)
         {
-        $datos = mysqli_fetch_array($respuesta);  // Obtener datos del usuario
 
+        $datos = mysqli_fetch_array($respuesta);  // Obtener datos del usuario
+        
         $_SESSION["IdUsuario"] = $datos["IdUsuario"];  // Guardar IdUsuario en sesión
         $_SESSION["Nombre"] = $datos["Nombre"];
 
@@ -76,7 +78,7 @@ if (isset($_POST["btnRecuperarAcceso"])) {
 
             if ($respuestaCorreo) {
                 header("Location: ../../Views/Home/login.php");
-                exit();
+                
             }
         }
     } else {
@@ -109,6 +111,12 @@ if (isset($_POST["btnAgendarCita"])) {
        echo "error";
     }
 }
+
+    if(isset($_POST["btnCerrarSesion"]))
+    {
+        session_destroy();
+        header("location: ../../Views/Home/login.php");
+    }
 
 
 ?>

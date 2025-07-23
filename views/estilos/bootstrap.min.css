@@ -639,6 +639,7 @@ pre code {
 .col-xl-8,
 .col-xl-9,
 .col-xl-auto {
+  margin-top: 50px;
   position: relative;
   width: 100%;
   padding-right: 15px;

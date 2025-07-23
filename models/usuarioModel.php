@@ -1,5 +1,4 @@
 <?php
-
     include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/models/connect.php';
 
 
@@ -25,7 +24,6 @@
         try
         {
             $context = OpenDB();
-
             $sp = "CALL ActualizarPerfilUsuario('$idUsuario', '$nombre', '$correo', '$identificacion')";
             $respuesta = $context -> query($sp);
 

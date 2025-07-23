@@ -19,10 +19,8 @@ $Resultado = consultarInfoUsuario($idUsuario);
   ?>
 
   <body>
-
-  <h4 class = "datosPerfilh4">Datos de perfil</h4>
     <?php
-    showHeader();
+    //showHeader();
     ?>
 
     <div class="col-sm-7">
@@ -31,9 +29,7 @@ $Resultado = consultarInfoUsuario($idUsuario);
       <div class="mini-card">
 
         <div class="card-body">
-
-          <form action="" method="post">
-
+          <form action="" method="$_POST">
             <div class="row">
               <div class="col-md-4">
 
@@ -65,7 +61,7 @@ $Resultado = consultarInfoUsuario($idUsuario);
                 <button class="btn btn-info " id="btnActualizarPerfilUsuario"
                   name="btnActualizarPerfilUsuario" type="submit">procesar
                 </button>
-
+              
           </form>
 
         </div>
