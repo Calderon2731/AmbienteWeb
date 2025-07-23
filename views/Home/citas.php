@@ -1,28 +1,29 @@
 <?php
 include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Controllers/homeController.php';
+include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Views/layoutInterno.php';
 ?>
+
 
 
 
 <!DOCTYPE html>
 <html>
-
+  <?php
+  Addcss();
+  ?>
 <head>
     <title>Citas</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../SiteAssets/css/vendors/bootstrap.min.css" />
-    <link rel="stylesheet" href="../SiteAssets/css/vendors/line-awesome.min.css" />
-    <link rel="stylesheet" href="../SiteAssets/css/pages/layout.css" />
     <link rel="icon" href="../SiteAssets/images/covid-19.ico" />
-    <script src="../SiteAssets/js/vendors/jquery.min.js"></script>
-    <script src="../SiteAssets/js/vendors/bootstrap.bundle.min.js"></script>
-    <script src="../SiteAssets/js/global.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link href="../estilos/index3.css" rel="stylesheet">
 </head>
 
 <body>
+    <?php
+    showHeader( )
+    ?>
     <main>
         <div class="main-content">
             <div class="container-fluid">
@@ -32,12 +33,11 @@ include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Controllers/homeControlle
                             <h5>Agenda una cita médica</h5>
                             <p>Llena los datos que se te solicitan a continuación para registrar una cita.</p>
                         </div>
-
                         <div class="card-body">
                             <form method="POST" action="../../Controllers/homeController.php">
                                 <div class="sub-section col-md-12 col-lg-8">
                                     <div class="sub-section-title">
-                                        <h6>Detalles de la cita</h6>
+                                        <h5>Detalles de la cita</h5>
                                     </div>
                                     <div class="sub-section-body">
                                         <div class="user-details-form">
@@ -71,10 +71,10 @@ include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Controllers/homeControlle
 
                                             </div>
 
-                                            <button class="btn btn-dark-red-f-gr mt-4" name="btnAgendarCita"
-                                                type="submit">
+                                            <button class="btn btn-danger mt-4" name="btnAgendarCita" type="submit">
                                                 <i class="las la-save"></i> Registrar cita
                                             </button>
+
                                         </div>
                                     </div>
                                 </div>
@@ -86,5 +86,7 @@ include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Controllers/homeControlle
         </div>
     </main>
 </body>
-
+ <?php
+  addJS();
+  ?>`
 </html>

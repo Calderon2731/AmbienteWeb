@@ -17,66 +17,72 @@ $Resultado = consultarInfoUsuario($idUsuario);
   <?php
   Addcss();
   ?>
+<body>
+  <h4 class="text-center mt-4 mb-4">Datos de perfil</h4>
 
-  <body>
+  <?php showHeader(); ?>
 
-  <h4 class = "datosPerfilh4">Datos de perfil</h4>
+  <div class="container">
     <?php
-    showHeader();
+    if (isset($_POST["txtMensaje"])) {
+      echo '<div class="alert alert-warning text-center">' . $_POST["txtMensaje"] . '</div>';
+    }
     ?>
 
-    <div class="col-sm-7">
-    </div>
-    <div class="col-md-8 patients-details-card-wrapper">
-      <div class="mini-card">
+    <div class="card">
+      <div class="card-header bg-danger text-white text-center">
+        <h5 class="mb-2 mt-2">Actualizar Perfil</h5>
+      </div>
 
-        <div class="card-body">
+      <div class="card-body">
+        <form action="" method="post">
+          <div class="row g-3">
 
-          <form action="" method="post">
-
-            <div class="row">
-              <div class="col-md-4">
-
-
-                <?php
-                if (isset($_POST["txtMensaje"])) {
-                  echo '<div class="alert alert-warning text-center">' . $_POST["txtMensaje"] . '</div>';
-                }
-                ?>
-
-                <div class="form-group">
-                  <label>Identificacion</label><input id="txtIdentificacion" name="txtIdentificacion"
-                    class="form-control" type="text" value="<?php echo $Resultado["Identificacion"] ?>"
-                    onkeyup="ConsultarNombreApi()">
-                </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="txtIdentificacion" class="form-label">Identificación</label>
+                <input id="txtIdentificacion" name="txtIdentificacion"
+                  class="form-control" type="text"
+                  value="<?php echo $Resultado["Identificacion"] ?>"
+                  onkeyup="ConsultarNombreApi()">
               </div>
+            </div>
 
-              <div class="col-sm-4">
-                <div class="form-group"><label>Nombre</label><input id="txtNombre" name="txtNombre"
-                    type="text" class="form-control" value="<?php echo $Resultado["Nombre"] ?>"></div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="txtNombre" class="form-label">Nombre</label>
+                <input id="txtNombre" name="txtNombre"
+                  type="text" class="form-control"
+                  value="<?php echo $Resultado["Nombre"] ?>">
               </div>
-              <div class="col-sm-4">
-                <div class="form-group"><label>Correo</label><input id="txtCorreo" name="txtCorreo"
-                    type="email" class="form-control" value="<?php echo $Resultado["Correo"] ?>">
-                </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="txtCorreo" class="form-label">Correo</label>
+                <input id="txtCorreo" name="txtCorreo"
+                  type="email" class="form-control"
+                  value="<?php echo $Resultado["Correo"] ?>">
               </div>
+            </div>
 
-              
-                <button class="btn btn-info " id="btnActualizarPerfilUsuario"
-                  name="btnActualizarPerfilUsuario" type="submit">procesar
-                </button>
+          </div>
 
-          </form>
-
-        </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
+          <div class="text-center mt-4">
+            <button class="btn btn-danger btn-info px-4" id="btnActualizarPerfilUsuario"
+              name="btnActualizarPerfilUsuario" type="submit">
+              Procesar
+            </button>
+          </div>
+        </form>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
+<?php addJS(); ?>
+</html>
+
 
   <?php
   addJS();
