@@ -18,6 +18,7 @@ $Resultado = consultarInfoUsuario($idUsuario);
   Addcss();
   ?>
 <body>
+
   <h4 class="text-center mt-4 mb-4">Datos de perfil</h4>
 
   <?php showHeader(); ?>
@@ -81,11 +82,4 @@ $Resultado = consultarInfoUsuario($idUsuario);
 </body>
 
 <?php addJS(); ?>
-</html>
-
-
-  <?php
-  addJS();
-  ?>
-
 </html>

@@ -18,15 +18,22 @@ Addcss();
 
   <?php
   showHeader();
-
-  menu();
   ?>
+
+  <main>
+  <?php
+    menu();
+
+    contenidoPrincipal();
+  ?>
+  </main>
+  
+
 
 
   <?php
-  ShowFooter();
+    ShowFooter();
   ?>
-
 </body>
 
 <?php
