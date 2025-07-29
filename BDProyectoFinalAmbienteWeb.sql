@@ -101,6 +101,30 @@ INSERT INTO `tmedico` VALUES (1,'Dr. Pérez','Cardiología','');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `trol`
+--
+
+DROP TABLE IF EXISTS `trol`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `trol` (
+  `IdRol` int(11) NOT NULL AUTO_INCREMENT,
+  `NombreRol` varchar(50) NOT NULL,
+  PRIMARY KEY (`IdRol`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trol`
+--
+
+LOCK TABLES `trol` WRITE;
+/*!40000 ALTER TABLE `trol` DISABLE KEYS */;
+INSERT INTO `trol` VALUES (1,'Usuario Regular'),(2,'Usuario Administrador');
+/*!40000 ALTER TABLE `trol` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tusuario`
 --
 
@@ -113,7 +137,10 @@ CREATE TABLE `tusuario` (
   `Correo` varchar(100) NOT NULL,
   `Identificacion` varchar(20) NOT NULL,
   `Contrasenna` varchar(10) NOT NULL,
-  PRIMARY KEY (`IdUsuario`)
+  `IdRol` int(11) NOT NULL,
+  PRIMARY KEY (`IdUsuario`),
+  KEY `FK_tusuario_trol` (`IdRol`),
+  CONSTRAINT `FK_tusuario_trol` FOREIGN KEY (`IdRol`) REFERENCES `trol` (`IdRol`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -123,7 +150,7 @@ CREATE TABLE `tusuario` (
 
 LOCK TABLES `tusuario` WRITE;
 /*!40000 ALTER TABLE `tusuario` DISABLE KEYS */;
-INSERT INTO `tusuario` VALUES (1,'dada','ken@fada','1231312','G0BIWEJI'),(2,'KENDALL ESTEBAN CALDERON ACUÑA','kendall@gmail.com','119300547','9092');
+INSERT INTO `tusuario` VALUES (1,'Melissa','Melissa@gmail.com','111111','G0BIWEJI',1),(2,'KENDALL ESTEBAN CALDERON ACUÑA','kendall@gmail.com','119300547','9092',2);
 /*!40000 ALTER TABLE `tusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,8 +296,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `RegistrarUsuario`(pNombre varchar(2
      pContrasenna varchar(10))
 BEGIN
 
-	INSERT INTO tusuario(Nombre,Correo,Identificacion,Contrasenna)
-	VALUES (pNombre,pCorreo,pIdentificacion,pContrasenna);
+	INSERT INTO tusuario(Nombre,Correo,Identificacion,Contrasenna,IdRol)
+	VALUES (pNombre,pCorreo,pIdentificacion,pContrasenna,1);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -317,8 +344,12 @@ BEGIN
 SELECT	IdUsuario,
 			Nombre,
 			Correo,
-			Identificacion
-	FROM tusuario
+			Identificacion,
+            Contrasenna,
+            U.IdRol,
+            NombreRol
+	FROM tusuario U 
+	INNER JOIN trol R ON U.IdRol = R.IdRol
     WHERE Correo = pCorreo
     AND Contrasenna = pContrasenna;
 END ;;
@@ -337,4 +368,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-22 20:56:53
+-- Dump completed on 2025-07-29  1:22:51

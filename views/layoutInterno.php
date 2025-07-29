@@ -10,11 +10,15 @@
     function showHeader(){
 
         $nombreUsuario = "";
+        $nombreRol = "";
         
         if(isset($_SESSION["Nombre"])){
-
             $nombreUsuario = $_SESSION["Nombre"];
 
+        }
+
+        if(isset($_SESSION["NombreRol"])){
+            $nombreRol = $_SESSION["NombreRol"];
         }
 
         echo '
@@ -26,6 +30,11 @@
 
         <div class="navbar-collapse">
           <ul class="navbar-nav">
+
+            <a
+                class="nav-link profile-dropdown"    >
+               '.$nombreRol.'
+              </a>
 
             <li class="nav-item">
               <a
@@ -41,13 +50,17 @@
                 <div class="dropdown-menu shadow-lg profsile-dropdown-menu"aria-labelledby="profile-dropdown">
                   
                   <a class="dropdown-item" href="../usuario/ConsultarPerfil.php"
-                    ><i class="las la-user mr-2"></i></a>
+                    ><i class="las la-user mr-2"></i>Perfil</a>
 
                   <a class="dropdown-item" href="../usuario/cambiarContrasenna.php"
                     ><i class="las la-lock mr-2"></i>Contraseña</a>
 
-                  <a class="dropdown-item" href="#"
-                  ><i class="las la-sign-out-alt mr-2"></i>Cerrar Sesion</a>   
+                    <form action="" method="POST">
+                      <button id="btnCerrarSesion" name="btnCerrarSesion" class="dropdown-item" type="sumit"> 
+                        <i class="las la-sign-out-alt mr-2"></i>Cerrar Sesión
+                      </button>
+                    </form>
+
                 </div>
               </div>
             </li>
@@ -90,12 +103,26 @@ function addJS(){
 
 
 function menu(){
+  $idRol="";
+
+  if(isset($_SESSION["IdRol"])){
+            $idRol = $_SESSION["IdRol"];
+
+        }
+
     echo'  
         <div class="side-nav">
-            <ul class="list-group list-group-flush">
-                <a class="list-group-item " href=" ../Home/citas.php" data-toggle="tooltip" data-placement="bottom" title="citas">
-                <i class="las la-stethoscope "></i><span>citas</span></a>
+            <ul class="list-group list-group-flush">';
 
+            if($idRol !=2){
+              echo'
+                <a class="list-group-item " href=" ../Home/citas.php" data-toggle="tooltip" data-placement="bottom" title="citas">
+                <i class="las la-stethoscope "></i><span>citas</span></a>';
+            }else{
+              
+            }
+
+    echo'
                 <a class="list-group-item" href="../Conocenos/conocenos.php" data-toggle="tooltip" data-placement="bottom" title="Patients">
                 <i class="las la-phone"></i><span>Nosotros</span></a>         
                 

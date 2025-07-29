@@ -25,6 +25,9 @@
         $_SESSION["Nombre"] = $datos["Nombre"];
         $_SESSION["IdUsuario"] = $datos["IdUsuario"];  // Guardar IdUsuario en sesión
         $_SESSION["Contrasenna"] = $datos["Contrasenna"];
+        $_SESSION["IdRol"] = $datos["IdRol"];
+        $_SESSION["NombreRol"] = $datos["NombreRol"];
+
         header("Location: ../../views/Home/Principal.php");
     }
     else{
