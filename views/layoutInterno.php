@@ -23,7 +23,7 @@
 
         echo '
             <header>
-      <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
+            <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
         <a class="navbar-brand" href="../Home/Principal.php">
           <img src="../Imagenes/logoDePrueba.png"><span>Santa Maria</span>
           </a>
@@ -45,7 +45,6 @@
                 aria-expanded="false">
                '.$nombreUsuario.'
               </a>
-
               <div class="dropdown">
                 <div class="dropdown-menu shadow-lg profsile-dropdown-menu"aria-labelledby="profile-dropdown">
                   
@@ -70,7 +69,6 @@
         </header>';
 }
     
-
 function Addcss(){
         echo '
         <head>
@@ -80,6 +78,7 @@ function Addcss(){
             <link rel="stylesheet" href="../estilos/line-awesome.min.css"/>
             <link rel="stylesheet" href="../estilos/layout.css" />
             <link rel="icon" href="../imagenes/qafya-icon.ico" />
+            <link href = "https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.css" rel="stylesheet">
          </head>';
 }
 
@@ -98,36 +97,82 @@ function addJS(){
         <script src="../Funciones/bootstrap.bundle.min.js"></script>
         <script src="../Funciones/global.js"></script>
         <script src="../Funciones/site/comunes.js"></script>
+        <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
+        <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.js"></script>
         ';
 }
 
-
 function menu(){
-  $idRol="";
+    $idRol="";
 
-  if(isset($_SESSION["IdRol"])){
-            $idRol = $_SESSION["IdRol"];
+      if(isset($_SESSION["IdRol"])){
+              $idRol = $_SESSION["IdRol"];
 
-        }
+    }
+    echo'  
+        <div class="side-nav">
+            <ul class="list-group list-group-flush">';
+          if($idRol != 2){
+              echo'
+                <a class="list-group-item " href=" ../Home/citas.php" data-toggle="tooltip" data-placement="bottom" title="citas">
+                <i class="las la-stethoscope "></i><span>citas</span></a>
+
+                <a class="list-group-item" href="../Conocenos/conocenos.php" data-toggle="tooltip" data-placement="bottom" title="Patients">
+                <i class="las la-phone"></i><span>Nosotros</span></a>
+                
+                <a class="list-group-item" href="../usuario/ConsultarPerfil.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>Perfil</span></a>';
+
+                
+          }else{
+              
+          }
+
+    echo'       <a class="list-group-item" href="../Home/consultarPacientes.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>Pacientes</span></a>
+
+                <a class="list-group-item" href="../usuario/consultarUsuarios.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>Administrar Usuarios</span></a>
+                
+                <a class="list-group-item" href="../usuario/ConsultarPerfil.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>Perfil</span></a>
+
+                <hr class="divider">
+            </ul>          
+        </div>';
+}
+
+function menuPacientes(){
+    $idRol="";
+
+      if(isset($_SESSION["IdRol"])){
+              $idRol = $_SESSION["IdRol"];
+
+    }
 
     echo'  
         <div class="side-nav">
             <ul class="list-group list-group-flush">';
-
-            if($idRol !=2){
+          if($idRol != 2){
               echo'
                 <a class="list-group-item " href=" ../Home/citas.php" data-toggle="tooltip" data-placement="bottom" title="citas">
-                <i class="las la-stethoscope "></i><span>citas</span></a>';
-            }else{
-              
-            }
+                <i class="las la-stethoscope "></i><span>citas</span></a>
 
-    echo'
                 <a class="list-group-item" href="../Conocenos/conocenos.php" data-toggle="tooltip" data-placement="bottom" title="Patients">
-                <i class="las la-phone"></i><span>Nosotros</span></a>         
+                <i class="las la-phone"></i><span>Nosotros</span></a>';
+          }else{
+              
+          }
+
+    echo'       <a class="list-group-item" href="../Home/consultarPacientes.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>Pacientes</span></a>
                 
                 <a class="list-group-item" href="../usuario/ConsultarPerfil.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
                 <i class="las la-address-card "></i><span>Perfil</span></a>
+
+                <a class="list-group-item" href="../Home/consultarPacientes.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>Pacientes</span></a>
+
                 <hr class="divider">
             </ul>          
         </div>';
@@ -237,7 +282,5 @@ function contenidoCitas(){
             </div>
         </div>';
 }
-
-
 
 ?>
