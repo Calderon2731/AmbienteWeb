@@ -121,7 +121,18 @@ function menu(){
                 <i class="las la-phone"></i><span>Nosotros</span></a>
                 
                 <a class="list-group-item" href="../usuario/ConsultarPerfil.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
-                <i class="las la-address-card "></i><span>Perfil</span></a>';
+                <i class="las la-address-card "></i><span>Perfil</span></a>
+
+                 <a class="list-group-item" href="../medicamento/consultarMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>Medicamento</span></a>
+
+                <a class="list-group-item" href="../medicamento/registrarMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>RMedicamento</span></a>
+
+                 <a class="list-group-item" href="../medicamento/actualizarMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>AMedicamento</span></a>';
+
+
 
                 
           }else{
@@ -136,6 +147,15 @@ function menu(){
                 
                 <a class="list-group-item" href="../usuario/ConsultarPerfil.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
                 <i class="las la-address-card "></i><span>Perfil</span></a>
+
+                <a class="list-group-item" href="../medicamento/consultarMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>Medicamento</span></a>
+
+                <a class="list-group-item" href="../medicamento/registrarMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>RMedicamento</span></a>
+
+                 <a class="list-group-item" href="../medicamento/actualizarMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-address-card "></i><span>AMedicamento</span></a>
 
                 <hr class="divider">
             </ul>          
@@ -172,6 +192,7 @@ function menuPacientes(){
 
                 <a class="list-group-item" href="../Home/consultarPacientes.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
                 <i class="las la-address-card "></i><span>Pacientes</span></a>
+            
 
                 <hr class="divider">
             </ul>          

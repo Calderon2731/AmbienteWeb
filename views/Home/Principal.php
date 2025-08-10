@@ -1,6 +1,7 @@
 <?php
 
   include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Views/layoutInterno.php';
+   include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Controllers/medicamentoController.php';
 
   if (session_status() == PHP_SESSION_NONE) {
   session_start();             //inicia las variables de session 
