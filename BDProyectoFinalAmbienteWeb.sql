@@ -61,7 +61,7 @@ CREATE TABLE `terror` (
   `Descripcion` varchar(5000) NOT NULL,
   `FechaHora` datetime NOT NULL,
   PRIMARY KEY (`idError`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +70,7 @@ CREATE TABLE `terror` (
 
 LOCK TABLES `terror` WRITE;
 /*!40000 ALTER TABLE `terror` DISABLE KEYS */;
-INSERT INTO `terror` VALUES (1,'Unknown column \'Identificacion2\' in \'field list\'','2025-07-09 23:18:33'),(2,'Unknown column \'Identificacion2\' in \'field list\'','2025-07-09 23:18:38'),(3,'PROCEDURE dbproyectoweb.ValidarInicioSesion2 does not exist','2025-07-09 23:20:46'),(4,'PROCEDURE dbproyectoweb.ValidarInicioSesion2 does not exist','2025-07-09 23:20:48'),(5,'PROCEDURE dbproyectoweb.ValidarInicioSesion2 does not exist','2025-07-09 23:21:10');
+INSERT INTO `terror` VALUES (1,'Unknown column \'Identificacion2\' in \'field list\'','2025-07-09 23:18:33'),(2,'Unknown column \'Identificacion2\' in \'field list\'','2025-07-09 23:18:38'),(3,'PROCEDURE dbproyectoweb.ValidarInicioSesion2 does not exist','2025-07-09 23:20:46'),(4,'PROCEDURE dbproyectoweb.ValidarInicioSesion2 does not exist','2025-07-09 23:20:48'),(5,'PROCEDURE dbproyectoweb.ValidarInicioSesion2 does not exist','2025-07-09 23:21:10'),(6,'PROCEDURE dbproyectoweb.ConsultarInfoMedicamento does not exist','2025-08-10 14:22:10'),(7,'PROCEDURE dbproyectoweb.ConsultarInfoMedicamento does not exist','2025-08-10 14:22:13'),(8,'PROCEDURE dbproyectoweb.ConsultarMedicamentos does not exist','2025-08-10 14:22:16'),(9,'PROCEDURE dbproyectoweb.consultarPacientes does not exist','2025-08-10 14:27:10'),(10,'PROCEDURE dbproyectoweb.consultarPacientes does not exist','2025-08-10 14:30:01'),(11,'PROCEDURE dbproyectoweb.consultarPacientes does not exist','2025-08-10 14:30:03'),(12,'Unknown column \'nombre\' in \'field list\'','2025-08-10 14:48:45'),(13,'Unknown column \'nombre\' in \'field list\'','2025-08-10 14:49:15'),(14,'Unknown column \'NombrePacientes\' in \'field list\'','2025-08-10 14:50:20'),(15,'Unknown column \'NombrePacientes\' in \'field list\'','2025-08-10 14:50:21'),(16,'Unknown column \'NombrePacientes\' in \'field list\'','2025-08-10 14:50:22'),(17,'Unknown column \'NombrePacientes\' in \'field list\'','2025-08-10 14:53:40'),(18,'Unknown column \'NombrePacientes\' in \'field list\'','2025-08-10 14:56:24'),(19,'PROCEDURE dbproyectoweb.consultarInfoPaciente does not exist','2025-08-10 14:58:14'),(20,'PROCEDURE dbproyectoweb.consultarInfoPaciente does not exist','2025-08-10 15:09:14'),(21,'Unknown column \'pIdPaciente\' in \'field list\'','2025-08-10 15:25:42'),(22,'PROCEDURE dbproyectoweb.consultarInfoPaciente does not exist','2025-08-10 17:35:56'),(23,'PROCEDURE dbproyectoweb.consultarInfoPaciente does not exist','2025-08-10 17:37:38'),(24,'PROCEDURE dbproyectoweb.consultarInfoPaciente does not exist','2025-08-10 17:41:39'),(25,'PROCEDURE dbproyectoweb.consultarInfoPaciente does not exist','2025-08-10 17:41:47'),(26,'PROCEDURE dbproyectoweb.consultarInfoPaciente does not exist','2025-08-10 17:50:55');
 /*!40000 ALTER TABLE `terror` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,6 +98,33 @@ LOCK TABLES `tmedico` WRITE;
 /*!40000 ALTER TABLE `tmedico` DISABLE KEYS */;
 INSERT INTO `tmedico` VALUES (1,'Dr. Pérez','Cardiología','');
 /*!40000 ALTER TABLE `tmedico` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tpaciente`
+--
+
+DROP TABLE IF EXISTS `tpaciente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tpaciente` (
+  `IdPaciente` int(11) NOT NULL AUTO_INCREMENT,
+  `NombrePaciente` varchar(200) NOT NULL,
+  `edadPaciente` int(11) NOT NULL,
+  `diagnostico` varchar(200) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  PRIMARY KEY (`IdPaciente`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tpaciente`
+--
+
+LOCK TABLES `tpaciente` WRITE;
+/*!40000 ALTER TABLE `tpaciente` DISABLE KEYS */;
+INSERT INTO `tpaciente` VALUES (1,'Gabriel Madrigal',20,'Dolor de cabeza','2022-03-29'),(2,'Dylan Cascante',30,'dolor de rodilla','2025-06-20'),(3,'Daniel',25,'gastritis','2025-02-23');
+/*!40000 ALTER TABLE `tpaciente` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -178,6 +205,37 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ActualizarPaciente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ActualizarPaciente`(pIdPaciente int(11),
+	pNombrePaciente varchar(200), 
+    pedadPaciente int(11),
+    pdiagnostico varchar(200),
+    pfecha DATE)
+BEGIN
+
+UPDATE tpaciente
+	SET
+		NombrePaciente = pNombrePaciente,
+		edadPaciente =  pedadPaciente,
+		diagnostico = pdiagnostico,
+		fecha = pfecha
+WHERE IdPaciente = pIdPaciente;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ActualizarPerfilUsuario` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -205,6 +263,33 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `consultarInfoPaciente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultarInfoPaciente`(pIdPaciente int(11))
+BEGIN
+
+SELECT IdPaciente,
+		NombrePaciente,
+		edadPaciente,
+		diagnostico,
+		fecha
+FROM tpaciente
+	WHERE IdPaciente = pIdPaciente;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `consultarInfoUsuario` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -225,6 +310,31 @@ SELECT IdUsuario,
        Contrasenna
        FROM tusuario
        WHERE  IdUsuario = pIdUsuario;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `consultarPacientes` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultarPacientes`()
+BEGIN
+SELECT IdPaciente,
+    NombrePaciente,
+    edadPaciente,
+	diagnostico,
+		fecha
+FROM tpaciente;
 
 END ;;
 DELIMITER ;
@@ -274,6 +384,29 @@ BEGIN
 INSERT INTO terror(Descripcion, fechaHora)
 VALUES (pDescripcion, NOW());
 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `RegistrarPaciente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `RegistrarPaciente`(pNombrePaciente varchar(200),
+	 pedadPaciente int(11),
+     pdiagnostico varchar(200),
+     pfecha DATE)
+BEGIN
+INSERT INTO tpaciente (NombrePaciente, edadPaciente, diagnostico, fecha)
+VALUES (pNombrePaciente, pedadPaciente, pdiagnostico, pfecha);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -368,4 +501,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-29  1:22:51
+-- Dump completed on 2025-08-10 19:23:33

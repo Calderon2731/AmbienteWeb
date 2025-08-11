@@ -1,9 +1,6 @@
 <?php
 include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/views/layoutInterno.php';
 include_once $_SERVER["DOCUMENT_ROOT"]."/AmbienteWeb/Controllers/PacienteController.php";
-
-
-  
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +29,7 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/AmbienteWeb/Controllers/PacienteControl
 
                 <hr class="divider">
             </ul>          
-        </div>'
+        </div>
 
       <div class="main-content">
         <div class="container-fluid">
@@ -54,7 +51,6 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/AmbienteWeb/Controllers/PacienteControl
                   <th>edad</th>          
                   <th>diagnostico</th>
                   <th>fecha</th>
-                  
                 </tr>
               </thead>
               <tbody>
@@ -64,24 +60,18 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/AmbienteWeb/Controllers/PacienteControl
                   $resultado = consultarPaciente();
                   while($fila = mysqli_fetch_array($resultado))
                   {
-                    $id = $fila["IdPaciente"];
-                    $nombre = $fila["NombrePaciente"];
-                    $edad = $fila["edadPaciente"];
-                    $diagnostico = $fila["diagnostico"];
-                    $fecha = $fila["fecha"];
-
                     echo "<tr>";
-                    echo"<td>".$id."</td>";
-                    echo "<td>".$nombre." </td>";
-                    echo "<td>".$edad." </td>";
-                    echo "<td> ".$diagnostico."</td>";
-                    echo "<td>".$fecha." </td>";
+                    echo"<td>". $fila["IdPaciente"]."</td>";
+                    echo "<td>".$nombre = $fila["NombrePaciente"]." </td>";
+                    echo "<td>".$edad = $fila["edadPaciente"]." </td>";
+                    echo "<td> ".$diagnostico = $fila["diagnostico"]."</td>";
+                    echo "<td>". $fecha = $fila["fecha"]." </td>";
                     echo "</tr>";
 
                     echo'<td>
 
                             
-                    <a href="actualizarPaciente.php?q=' . $fila["IdPaciente"] . '" class="btn">
+                    <a href="actualizarPaciente.php?q=' . $fila["IdPaciente"]. '" class="btn">
                     <i class="las la-edit" style="font-size:1.5em;"></i>
                     </a>
                     </td>';

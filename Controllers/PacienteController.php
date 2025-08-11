@@ -4,6 +4,8 @@
     function consultarPaciente()
     {
         return consultarPacientesModel();
+
+        
     }
 
     if(isset($_POST["btnProcesarAgregadoPaciente"]))
