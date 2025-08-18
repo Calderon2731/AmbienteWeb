@@ -42,7 +42,7 @@
 
                                     <div class="row">
                                         <div class="col-md-12 text-right pb-4">
-                                            <a href="registrarProducto.php" class="btn btn-info">Agregar</a>
+                                            <a href="registrarMedicamento.php" class="btn btn-info">Agregar</a>
                                         </div>
                                     </div>
 
@@ -51,8 +51,11 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Nombre</th>
-                                                <th>Descripción</th>
-                                                <th>Precio</th>
+                                                <th>Principio Activo</th>
+                                                <th>Concentracion</th>
+                                                <th>Forma Farmaceutica</th>
+                                                <th>Fecha Vencimiento</th>
+                                                <th>Proveedor</th>
                                                 <th>Cantidad</th>
                                                 <th>Imagen</th>
                                                 <th>Estado</th>
@@ -66,22 +69,25 @@
                                                 While($fila = mysqli_fetch_array($resultado))
                                                 {
                                                     echo "<tr>";
-                                                    echo "<td>". $fila["IdProducto"] ."</td>";
+                                                    echo "<td>". $fila["IdMedicamento"] ."</td>";
                                                     echo "<td>". $fila["Nombre"] ."</td>";
-                                                    echo "<td>". $fila["Descripcion"] ."</td>";
-                                                    echo "<td> $ ". number_format($fila["Precio"],2) ."</td>";
+                                                    echo "<td>". $fila["Principio_activo"] ."</td>";
+                                                    echo "<td>". $fila["Concentracion"] ."</td>";
+                                                    echo "<td>". $fila["Forma_farmaceutica"] ."</td>";
+                                                    echo "<td>". $fila["Fecha_vencimiento"] ."</td>";
+                                                    echo "<td>". $fila["Proveedor"] ."</td>";
                                                     echo "<td>". $fila["Cantidad"] ."</td>";
                                                     echo "<td><img src=". $fila["Imagen"] ." width='125' height='125'></td>";
                                                     echo "<td>". $fila["EstadoDescripcion"] ."</td>";
                                                     echo '<td>
                                                     
                                                         <a class="btn btnAbrirModal" data-toggle="modal" data-target="#CambiarEstadoMedicamento"
-                                                            data-id="' . $fila["IdProducto"] . '" data-nombre="' . $fila["Nombre"] . '">
-                                                            <i class="fa ' . ($fila["Estado"] ? 'fa-toggle-on text-success' : 'fa-toggle-off text-danger') . '" style="font-size:1.5em;"></i>
+                                                            data-id="' . $fila["IdMedicamento"] . '" data-nombre="' . $fila["Nombre"] . '">
+                                                            <i class="las ' . ($fila["Estado"] ? 'la-toggle-on text-success' : 'la-toggle-off text-danger') . '" style="font-size:1.5em;"></i>
                                                         </a>
                                                         
-                                                        <a href="actualizarMedicamento.php?q=' . $fila["IdProducto"] . '" class="btn">
-                                                            <i class="fa fa-edit" style="font-size:1.5em;"></i>
+                                                        <a href="actualizarMedicamento.php?q=' . $fila["IdMedicamento"] . '" class="btn">
+                                                            <i class="la la-edit" style="font-size:1.5em;"></i>
                                                         </a>
 
                                                      </td>';
@@ -125,7 +131,7 @@
                 <form action="" method="POST">
                     <div class="modal-body">
                         
-                        <input type="hidden" id="IdProducto" name="IdProducto" class="form-control">
+                        <input type="hidden" id="IdMedicamento" name="IdMedicamento" class="form-control">
                         <Label id="lblNombre" name="lblNombre"></Label>
 
                     </div>
@@ -156,7 +162,7 @@
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
 
-            $('#IdProducto').val(id);
+            $('#IdMedicamento').val(id);
             $('#lblNombre').text("¿Desea cambiar el estado del medicamento " + nombre + "?");
         });
 

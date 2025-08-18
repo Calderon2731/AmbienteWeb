@@ -9,16 +9,19 @@
     if(isset($_POST["btnRegistrarMedicamento"]))
     {
         $nombre = $_POST["txtNombre"];
-        $descripcion = $_POST["txtDescripcion"];
-        $precio = $_POST["txtPrecio"];
+        $principio_activo = $_POST["txtPrincipio_activo"];
+        $concentracion = $_POST["txtConcentracion"];
+        $forma_farmaceutica = $_POST["txtForma_farmaceutica"];
+        $fecha_vencimiento = $_POST["txtFecha_vencimiento"];
+        $proveedor = $_POST["txtProveedor"];
         $cantidad = $_POST["txtCantidad"];
-        $imagen = '/AmbienteWeb2/Views/ImagenMedicamentos/' . $_FILES["txtImagen"]["name"];
+        $imagen = '/AmbienteWeb/Views/ImagenMedicamentos/' . $_FILES["txtImagen"]["name"];
 
         $origen = $_FILES["txtImagen"]["tmp_name"];
-        $destino = $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb2/views/ImagenMedicamentos/' . $_FILES["txtImagen"]["name"];
+        $destino = $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/views/ImagenMedicamentos/' . $_FILES["txtImagen"]["name"];
         copy($origen,$destino);
 
-        $respuesta = RegistrarMedicamentoModel($nombre, $descripcion, $precio, $cantidad, $imagen);
+        $respuesta = RegistrarMedicamentoModel($nombre, $principio_activo, $concentracion, $forma_farmaceutica , $fecha_vencimiento , $proveedor , $cantidad, $imagen);
 
         if($respuesta)
         {
@@ -32,9 +35,9 @@
     
     if(isset($_POST["btnCambiarEstadoMedicamento"]))
     {
-        $idProducto = $_POST["IdProducto"];
+        $idMedicamento = $_POST["IdMedicamento"];
         
-        $respuesta = CambiarEstadoMedicamentoModel($idProducto);
+        $respuesta = CambiarEstadoMedicamentoModel($idMedicamento);
 
         if($respuesta)
         {
@@ -46,9 +49,9 @@
         }
     }  
 
-    function ConsultarInfoMedicamento($idProducto)
+    function ConsultarInfoMedicamento($idMedicamento)
     {
-        $respuesta = ConsultarInfoMedicamentoModel($idProducto);
+        $respuesta = ConsultarInfoMedicamentoModel($idMedicamento);
 
         if($respuesta != null && $respuesta -> num_rows > 0)
         {
@@ -58,23 +61,26 @@
 
     if(isset($_POST["btnActualizarMedicamento"]))
     {
-        $idProducto = $_POST["txtId"];
+        $idMedicamento = $_POST["txtId"];
         $nombre = $_POST["txtNombre"];
-        $descripcion = $_POST["txtDescripcion"];
-        $precio = $_POST["txtPrecio"];
+       $principio_activo = $_POST["txtPrincipio_activo"];
+        $concentracion = $_POST["txtConcentracion"];
+        $forma_farmaceutica = $_POST["txtForma_farmaceutica"];
+        $fecha_vencimiento = $_POST["txtFecha_vencimiento"];
+        $proveedor = $_POST["txtProveedor"];
         $cantidad = $_POST["txtCantidad"];
         $imagen = "";
 
         if($_FILES["txtImagen"]["name"] != "")
         {
-            $imagen = '/AmbienteWeb2/views/ImagenMedicamentos/' . $_FILES["txtImagen"]["name"];
+            $imagen = '/AmbienteWeb/views/ImagenMedicamentos/' . $_FILES["txtImagen"]["name"];
 
             $origen = $_FILES["txtImagen"]["tmp_name"];
-            $destino = $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb2/views/ImagenMedicamentos/' . $_FILES["txtImagen"]["name"];
+            $destino = $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/views/ImagenMedicamentos/' . $_FILES["txtImagen"]["name"];
             copy($origen,$destino);
         }
 
-        $respuesta = ActualizarMedicamentoModel($idProducto, $nombre, $descripcion, $precio, $cantidad, $imagen);
+        $respuesta = ActualizarMedicamentoModel($idMedicamento, $nombre,$principio_activo, $concentracion, $forma_farmaceutica , $fecha_vencimiento , $proveedor , $cantidad, $imagen);
 
         if($respuesta)
         {

@@ -97,6 +97,7 @@ function addJS(){
         <script src="../Funciones/bootstrap.bundle.min.js"></script>
         <script src="../Funciones/global.js"></script>
         <script src="../Funciones/site/comunes.js"></script>
+        <script src="../Funciones/popper.min.js"></script>
         <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
         <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.js"></script>
         ';
@@ -123,14 +124,8 @@ function menu(){
                 <a class="list-group-item" href="../usuario/ConsultarPerfil.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
                 <i class="las la-address-card "></i><span>Perfil</span></a>
 
-                 <a class="list-group-item" href="../medicamento/consultarMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
-                <i class="las la-address-card "></i><span>Medicamento</span></a>
-
-                <a class="list-group-item" href="../medicamento/registrarMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
-                <i class="las la-address-card "></i><span>RMedicamento</span></a>
-
-                 <a class="list-group-item" href="../medicamento/actualizarMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
-                <i class="las la-address-card "></i><span>AMedicamento</span></a>';
+                 <a class="list-group-item" href="../medicamento/consultarMedicamentos.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-capsules"></i><span>Medicamentos</span></a>';
 
 
 
@@ -147,15 +142,6 @@ function menu(){
                 
                 <a class="list-group-item" href="../usuario/ConsultarPerfil.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
                 <i class="las la-address-card "></i><span>Perfil</span></a>
-
-                <a class="list-group-item" href="../medicamento/consultarMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
-                <i class="las la-address-card "></i><span>Medicamento</span></a>
-
-                <a class="list-group-item" href="../medicamento/registrarMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
-                <i class="las la-address-card "></i><span>RMedicamento</span></a>
-
-                 <a class="list-group-item" href="../medicamento/actualizarMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
-                <i class="las la-address-card "></i><span>AMedicamento</span></a>
 
                 <hr class="divider">
             </ul>          

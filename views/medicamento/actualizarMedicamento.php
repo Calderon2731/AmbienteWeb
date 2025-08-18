@@ -2,8 +2,8 @@
     include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/views/layoutInterno.php';
     include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Controllers/medicamentoController.php';
 
-    $idProducto = $_GET['q'];
-    $resultado = ConsultarInfoMedicamento($idProducto);
+    $idMedicamento = $_GET['q'];
+    $resultado = ConsultarInfoMedicamento($idMedicamento);
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +42,7 @@
                                     ?>
 
                                     <input id="txtId" name="txtId" type="hidden" class="form-control"
-                                    value="<?php echo $resultado["IdProducto"] ?>">                                  
+                                    value="<?php echo $resultado["IdMedicamento"] ?>">                                  
 
                                     <div class="form-group row">
                                         <label class="col-sm-3 text-right control-label col-form-label">Nombre</label>
@@ -53,20 +53,44 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-3 text-right control-label col-form-label">Descripción</label>
-                                        <div class="col-md-7">
-                                            <textarea id="txtDescripcion" name="txtDescripcion" class="form-control" 
-                                            rows="5"><?php echo $resultado["Descripcion"] ?></textarea>
+                                        <label class="col-sm-3 text-right control-label col-form-label">Principio Activo</label>
+                                        <div class="col-lg-7">
+                                            <input id="txtPrincipio_activo" name="txtPrincipio_activo" type="text" class="form-control"
+                                            value="<?php echo $resultado["Principio_activo"] ?>">
                                         </div>
                                     </div>
 
-                                   <div class="form-group row">
-                                        <label class="col-md-3 text-right control-label col-form-label">Precio</label>
-                                        <div class="col-md-3"> 
-                                            <input id="txtPrecio" name="txtPrecio" maxlength="10"
-                                                type="text" class="form-control" onkeypress="permitirSoloNumeros()"
-                                                value="<?php echo $resultado["Precio"] ?>">
+                                     <div class="form-group row">
+                                        <label class="col-sm-3 text-right control-label col-form-label">Concentracion</label>
+                                        <div class="col-lg-7">
+                                            <input id="txtConcentracion" name="txtConcentracion" type="text" class="form-control"
+                                            value="<?php echo $resultado["Concentracion"] ?>">
                                         </div>
+                                    </div>
+
+                                     <div class="form-group row">
+                                        <label class="col-sm-3 text-right control-label col-form-label">Forma Farmaceutica</label>
+                                        <div class="col-lg-7">
+                                            <input id="txtForma_farmaceutica" name="txtForma_farmaceutica" type="text" class="form-control"
+                                            value="<?php echo $resultado["Forma_farmaceutica"] ?>">
+                                        </div>
+                                    </div>
+
+                                     <div class="form-group row">
+                                        <label class="col-sm-3 text-right control-label col-form-label">Fecha Vencimiento</label>
+                                        <div class="col-lg-7">
+                                            <input id="txtFecha_vencimiento" name="txtFecha_vencimiento" type="date" class="form-control"
+                                            value="<?php echo $resultado["Fecha_vencimiento"] ?>">
+                                        </div>
+                                    </div>
+
+                                  <div class="form-group row">
+                                        <label class="col-sm-3 text-right control-label col-form-label">Proveedor</label>
+                                        <div class="col-lg-7">
+                                            <input id="txtProveedor" name="txtProveedor" type="text" class="form-control"
+                                            value="<?php echo $resultado["Proveedor"] ?>">
+                                        </div>
+                                    </div>
  
                                         <label class="col-md-1 text-right control-label col-form-label">Cantidad</label>
                                         <div class="col-md-3"> 

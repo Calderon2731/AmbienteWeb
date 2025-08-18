@@ -20,13 +20,13 @@
         }
     }
 
-    function RegistrarMedicamentoModel($nombre, $descripcion, $precio, $cantidad, $imagen)
+    function RegistrarMedicamentoModel($nombre, $principio_activo, $concentracion, $forma_farmaceutica , $fecha_vencimiento , $proveedor , $cantidad, $imagen)
     {
         try
         {
             $context = OpenDB();
 
-            $sp = "CALL RegistrarMedicamento('$nombre', '$descripcion', '$precio', '$cantidad', '$imagen')";
+            $sp = "CALL RegistrarMedicamento('$nombre', '$principio_activo', '$concentracion','$forma_farmaceutica','$fecha_vencimiento','$proveedor', '$cantidad', '$imagen')";
             $respuesta = $context -> query($sp);
 
             CloseDB($context);            
@@ -39,13 +39,13 @@
         }
     }
 
-    function CambiarEstadoMedicamentoModel($idProducto)
+    function CambiarEstadoMedicamentoModel($idMedicamento)
     {
         try
         {
             $context = OpenDB();
 
-            $sp = "CALL CambiarEstadoMedicamento('$idProducto')";
+            $sp = "CALL CambiarEstadoMedicamento('$idMedicamento')";
             $respuesta = $context -> query($sp);
 
             CloseDB($context);            
@@ -58,13 +58,13 @@
         }
     }
 
-    function ConsultarInfoMedicamentoModel($idProducto)
+    function ConsultarInfoMedicamentoModel($idMedicamento)
     {
         try
         {
             $context = OpenDB();
 
-            $sp = "CALL ConsultarInfoMedicamento('$idProducto')";
+            $sp = "CALL ConsultarInfoMedicamento('$idMedicamento')";
             $respuesta = $context -> query($sp);
 
             CloseDB($context);            
@@ -77,13 +77,13 @@
         }
     }   
 
-    function ActualizarMedicamentoModel($idProducto, $nombre, $descripcion, $precio, $cantidad, $imagen)
+    function ActualizarMedicamentoModel($idMedicamento, $nombre, $principio_activo, $concentracion, $forma_farmaceutica , $fecha_vencimiento , $proveedor , $cantidad, $imagen)
     {
         try
         {
             $context = OpenDB();
 
-            $sp = "CALL ActualizarMedicamento('$idProducto', '$nombre', '$descripcion', '$precio', '$cantidad', '$imagen')";
+            $sp = "CALL ActualizarMedicamento('$idMedicamento', '$nombre', '$principio_activo', '$concentracion','$forma_farmaceutica','$fecha_vencimiento','$proveedor', '$cantidad', '$imagen')";
             $respuesta = $context -> query($sp);
 
             CloseDB($context);            
