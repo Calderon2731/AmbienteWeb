@@ -110,11 +110,11 @@ function menu(){
               $idRol = $_SESSION["IdRol"];
 
     }
-    echo'  
-        <div class="side-nav">
-            <ul class="list-group list-group-flush">';
-          if($idRol != 2){
+      
+        if($idRol == 1){
               echo'
+          <div class="side-nav">
+            <ul class="list-group list-group-flush">
                 <a class="list-group-item " href=" ../Home/citas.php" data-toggle="tooltip" data-placement="bottom" title="citas">
                 <i class="las la-stethoscope "></i><span>citas</span></a>
 
@@ -125,16 +125,18 @@ function menu(){
                 <i class="las la-address-card "></i><span>Perfil</span></a>
 
                  <a class="list-group-item" href="../medicamento/consultarMedicamentos.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
-                <i class="las la-capsules"></i><span>Medicamentos</span></a>';
+                <i class="las la-capsules"></i><span>Medicamentos</span></a>
 
+                  <hr class="divider">
+            </ul>
+      </div>';
+             
 
-
-                
           }else{
-              
-          }
-
-    echo'       <a class="list-group-item" href="../Home/consultarPacientes.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+            echo' 
+      <div class="side-nav">
+      <ul class="list-group list-group-flush">
+                <a class="list-group-item" href="../Home/consultarPacientes.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
                 <i class="las la-address-card "></i><span>Pacientes</span></a>
 
                 <a class="list-group-item" href="../usuario/consultarUsuarios.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
@@ -145,48 +147,17 @@ function menu(){
 
                 <hr class="divider">
             </ul>          
-        </div>';
-}
-
-function menuPacientes(){
-    $idRol="";
-
-      if(isset($_SESSION["IdRol"])){
-              $idRol = $_SESSION["IdRol"];
-
-    }
-
-    echo'  
-        <div class="side-nav">
-            <ul class="list-group list-group-flush">';
-          if($idRol != 2){
-              echo'
-                <a class="list-group-item " href=" ../Home/citas.php" data-toggle="tooltip" data-placement="bottom" title="citas">
-                <i class="las la-stethoscope "></i><span>citas</span></a>
-
-                <a class="list-group-item" href="../Conocenos/conocenos.php" data-toggle="tooltip" data-placement="bottom" title="Patients">
-                <i class="las la-phone"></i><span>Nosotros</span></a>';
-          }else{
+      </div>';
               
           }
 
-    echo'       <a class="list-group-item" href="../Home/consultarPacientes.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
-                <i class="las la-address-card "></i><span>Pacientes</span></a>
-                
-                <a class="list-group-item" href="../usuario/ConsultarPerfil.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
-                <i class="las la-address-card "></i><span>Perfil</span></a>
-
-                <a class="list-group-item" href="../Home/consultarPacientes.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
-                <i class="las la-address-card "></i><span>Pacientes</span></a>
-            
-
-                <hr class="divider">
-            </ul>          
-        </div>';
+    
 }
 
+
+
 function contenidoPrincipal(){
-    echo' <div class="main-content">
+    echo'<div class="main-content">
         <div class="container-fluid">
           <div class="section">
             <div class="row">

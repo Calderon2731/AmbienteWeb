@@ -36,9 +36,6 @@
           <input type="password" id="txtContrasenna"  name="txtContrasenna" class="form-control" placeholder="Contraseña" >
           
           <div id="remember" class="checkbox">
-            <label>
-              <input type="checkbox" name= "txtRecordarme"value="remember-me"> Recordarme
-            </label>
           </div>
           <button class="btn btn-lg btn-danger btn-block btn-signin "  name = "btnEntrarInicioSesion"type="submit">Entrar</button>
 
