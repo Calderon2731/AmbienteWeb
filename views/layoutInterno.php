@@ -1,27 +1,27 @@
 <?php
-    include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Controllers/homeController.php';
-    
-    if(session_status() == PHP_SESSION_NONE)
-    {
-        session_start();
-    }
-    
+include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/Controllers/homeController.php';
 
-    function showHeader(){
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 
-        $nombreUsuario = "";
-        $nombreRol = "";
-        
-        if(isset($_SESSION["Nombre"])){
-            $nombreUsuario = $_SESSION["Nombre"];
 
-        }
+function showHeader()
+{
 
-        if(isset($_SESSION["NombreRol"])){
-            $nombreRol = $_SESSION["NombreRol"];
-        }
+  $nombreUsuario = "";
+  $nombreRol = "";
 
-        echo '
+  if (isset($_SESSION["Nombre"])) {
+    $nombreUsuario = $_SESSION["Nombre"];
+
+  }
+
+  if (isset($_SESSION["NombreRol"])) {
+    $nombreRol = $_SESSION["NombreRol"];
+  }
+
+  echo '
             <header>
             <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
         <a class="navbar-brand" href="../Home/Principal.php">
@@ -33,7 +33,7 @@
 
             <a
                 class="nav-link profile-dropdown"    >
-               '.$nombreRol.'
+               ' . $nombreRol . '
               </a>
 
             <li class="nav-item">
@@ -43,7 +43,7 @@
                 role="button"
                 data-toggle="dropdown"         
                 aria-expanded="false">
-               '.$nombreUsuario.'
+               ' . $nombreUsuario . '
               </a>
               <div class="dropdown">
                 <div class="dropdown-menu shadow-lg profsile-dropdown-menu"aria-labelledby="profile-dropdown">
@@ -68,9 +68,10 @@
       </nav>
         </header>';
 }
-    
-function Addcss(){
-        echo '
+
+function Addcss()
+{
+  echo '
         <head>
             <title>pagina</title>
             <meta name="viewport" control="width=device-width, initial-scale=1" />
@@ -83,16 +84,17 @@ function Addcss(){
 }
 
 function ShowFooter()
-    {
-        echo 
-            '<footer class="footer text-center">
+{
+  echo
+    '<footer class="footer text-center">
                 Derechos Reservados © Santa Maria
             </footer>';
 }
 
-function addJS(){
-        echo
-        '
+function addJS()
+{
+  echo
+    '
         <script src="../Funciones/jquery.min.js"></script>
         <script src="../Funciones/bootstrap.bundle.min.js"></script>
         <script src="../Funciones/global.js"></script>
@@ -103,16 +105,17 @@ function addJS(){
         ';
 }
 
-function menu(){
-    $idRol="";
+function menu()
+{
+  $idRol = "";
 
-      if(isset($_SESSION["IdRol"])){
-              $idRol = $_SESSION["IdRol"];
+  if (isset($_SESSION["IdRol"])) {
+    $idRol = $_SESSION["IdRol"];
 
-    }
-      
-        if($idRol == 1){
-              echo'
+  }
+
+  if ($idRol == 1) {
+    echo '
           <div class="side-nav">
             <ul class="list-group list-group-flush">
                 <a class="list-group-item " href=" ../Home/citas.php" data-toggle="tooltip" data-placement="bottom" title="citas">
@@ -130,10 +133,10 @@ function menu(){
                   <hr class="divider">
             </ul>
       </div>';
-             
 
-          }else{
-            echo' 
+
+  } else {
+    echo ' 
       <div class="side-nav">
       <ul class="list-group list-group-flush">
                 <a class="list-group-item" href="../Home/consultarPacientes.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
@@ -148,59 +151,56 @@ function menu(){
                 <hr class="divider">
             </ul>          
       </div>';
-              
-          }
 
-    
+  }
+
+
 }
 
+function contenidoPrincipal()
+{
+  echo '
+  <div class="main-content container mt-4">
 
+      <!-- Mensaje de bienvenida -->
+      <div class="text-center mb-4">
+          <h2>Bienvenidos a la Clínica Santa María</h2>
+          <p class="lead">Estamos felices de tenerte aquí</p>
+      </div>
 
-function contenidoPrincipal(){
-    echo'<div class="main-content">
-        <div class="container-fluid">
-          <div class="section">
-            <div class="row">
-              <div class="col-md-6"></div>
-            </div>
+      <!-- Carrusel -->
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
           </div>
-
-          <div class="section welcome-section">
-            <div class="section-content">
-              <div class="card-deck">
-                <div class="card welcome-content-card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div
-                        class="col-md-6 welcome-text-wrapper align-self-center"
-                      >
-                      <h5>BIENVENIDO</h5>
-                      </div>
-                      <div class="col-md-6 welcome-img-wrapper">
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <div class="carousel-inner rounded shadow">
+              <div class="carousel-item active">
+                  <img src="https://picsum.photos/1200/400?random=1" class="d-block w-100" alt="Imagen 1">
               </div>
-            </div>
-            </div>
+              <div class="carousel-item">
+                  <img src="https://picsum.photos/1200/400?random=2" class="d-block w-100" alt="Imagen 2">
+              </div>
+              <div class="carousel-item">
+                  <img src="https://picsum.photos/1200/400?random=3" class="d-block w-100" alt="Imagen 3">
+              </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+          </button>
+      </div>
 
-          <div class="section card-summaries">
-            <div class="section-content">
-
-              <div class="card-deck">
-                <div class="card">
-                  <div class="card-header"><h5>Actividad Reciente</h5></div>
-                  <div class="card-body"> 
-                </div>
-            </div>
-        </div>
-      </div>';
+  </div>';
 }
 
-function contenidoCitas(){
-  echo' <div class="main-content">
+
+function contenidoCitas()
+{
+  echo ' <div class="main-content">
             <div class="container-fluid">
                 <div class="section profile-section">
                     <div class="card container">
@@ -255,6 +255,29 @@ function contenidoCitas(){
                                 </div>
                             </form>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>';
+}
+
+function contenidoConocenos()
+{
+  echo ' <div class="main-content">
+            <div class="container-fluid">
+                <div class="section profile-section">
+                    <div class="card container">
+                        <div class="card-header">
+                            <h3>Servicios en línea</h3>
+                            <p>Estamos aquí para ayudarte.</p>
+                            <hr>
+                        </div>
+                        <div class="sub-section-body">
+                        <p> Te invitamos a conocer nuestros servicios disponibles. </p> 
+                        <h5> Ubicación </h5> 
+                          <div class="map-container mb-4"> <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+                        </div>
+                        
                     </div>
                 </div>
             </div>
