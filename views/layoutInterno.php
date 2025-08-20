@@ -170,96 +170,25 @@ function contenidoPrincipal()
 
       <!-- Carrusel -->
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
-          </div>
           <div class="carousel-inner rounded shadow">
               <div class="carousel-item active">
-                  <img src="https://picsum.photos/1200/400?random=1" class="d-block w-100" alt="Imagen 1">
+                  <img src="../Imagenes/ImagenDoctor1.png" class="d-block w-100" alt="Imagen 1">
               </div>
               <div class="carousel-item">
-                  <img src="https://picsum.photos/1200/400?random=2" class="d-block w-100" alt="Imagen 2">
+                  <img src="../Imagenes/ImagenDoctor2.png" class="d-block w-100" alt="Imagen 2">
               </div>
               <div class="carousel-item">
-                  <img src="https://picsum.photos/1200/400?random=3" class="d-block w-100" alt="Imagen 3">
+                  <img src="../Imagenes/ImagenDoctor3.png" class="d-block w-100" alt="Imagen 3">
               </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-          </button>
+
       </div>
 
   </div>';
+
 }
 
 
-function contenidoCitas()
-{
-  echo ' <div class="main-content">
-            <div class="container-fluid">
-                <div class="section profile-section">
-                    <div class="card container">
-                        <div class="card-header">
-                            <h5>Agenda una cita médica</h5>
-                            <p>Llena los datos que se te solicitan a continuación para registrar una cita.</p>
-                        </div>
-                        <div class="card-body">
-                            <form method="POST" action="../../Controllers/homeController.php">
-                                <div class="sub-section col-md-12 col-lg-8">
-                                    <div class="sub-section-title">
-                                        <h5>Detalles de la cita</h5>
-                                    </div>
-                                    <div class="sub-section-body">
-                                        <div class="user-details-form">
-                                            <div class="form-row">
-
-                                                <div class="form-group col-sm-6">
-                                                    <label for="txtFecha">Fecha</label>
-                                                    <input type="date" class="form-control" id="txtFecha"
-                                                        name="txtFecha" required>
-                                                </div>
-
-                                                <div class="form-group col-sm-6">
-                                                    <label for="txtHora">Horario disponible</label>
-                                                    <input type="time" class="form-control" id="txtHora" name="txtHora"
-                                                        required>
-                                                </div>
-
-                                                <div class="form-group col-md-12">
-                                                    <label for="txtMotivo">Motivo de la cita</label>
-                                                    <textarea class="form-control" id="txtMotivo" name="txtMotivo"
-                                                        rows="3" placeholder="Describa el motivo de su consulta"
-                                                        required></textarea>
-                                                </div>
-
-                                                <select class="form-control" id="txtMedico" name="txtMedico" required>
-                                                    <option value="">Seleccione un médico</option>
-                                                    <option value="1">Dr. Ramirez</option>
-                                                    <option value="2">Dra. Jiménez</option>
-                                                    <option value="3">Dr. Ortega</option>
-                                                </select>
-
-                                            </div>
-
-                                            <button class="btn btn-danger mt-4" name="btnAgendarCita" type="submit">
-                                                <i class="las la-save"></i> Registrar cita
-                                            </button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>';
-}
 
 function contenidoConocenos()
 {

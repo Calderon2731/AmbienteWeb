@@ -1,6 +1,4 @@
 <?php
-
-
     include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/models/homeModel.php';
     include_once $_SERVER["DOCUMENT_ROOT"].'/AmbienteWeb/Controllers/utilidadesController.php';
 
@@ -93,26 +91,29 @@ if (isset($_POST["btnAgendarCita"])) {
     $fecha = $_POST["txtFecha"];
     $hora = $_POST["txtHora"];
     $motivo = $_POST["txtMotivo"];
-    $medico = $_POST["txtMedico"];
+    $medico = $_POST["listaMedicos"];
     $idusuario = $_SESSION["IdUsuario"];
 
     // Bloque de depuración
-    echo "<pre>";
+   /* echo "<pre>";
     echo "ID Usuario: $idusuario\n";
     echo "Fecha: $fecha\n";
     echo "Hora: $hora\n";
     echo "Motivo: $motivo\n";
     echo "ID Médico: $medico\n";
-    echo "</pre>";
+    echo "</pre>";*/
 
     $respuesta = RegistrarCita($idusuario, $fecha, $hora, $motivo, $medico);
-
     if ($respuesta) {
-        header("Location: ../Views/Home/citaconfirmada.php");
+        header("Location: ../../Views/Home/citaconfirmada.php");
     } else {
-       echo "error";
+       $_POST["txtMensaje"] = "Su cita NO fue enviada.";
     }
 }
+
+    function ConsultarMedicos(){
+        return consultarMedicosModel();
+    }
 
     if(isset($_POST["btnCerrarSesion"]))
     {

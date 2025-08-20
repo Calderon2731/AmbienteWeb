@@ -97,4 +97,22 @@ function RegistrarCita($idusuario, $fecha, $hora, $motivo, $medico){
     }
 }
 
+ function consultarMedicosModel(){
+    try
+        {
+            $context = OpenDB();
+            $sp = "CALL consultarMedicos()";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+        RegistrarError($error);
+            return null;
+        }
+    }
+
+
  ?>
