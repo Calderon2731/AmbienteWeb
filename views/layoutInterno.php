@@ -115,6 +115,7 @@ function menu()
   }
 
   if ($idRol == 1) {
+                                                //si es usuario
     echo '
           <div class="side-nav">
             <ul class="list-group list-group-flush">
@@ -127,14 +128,16 @@ function menu()
                 <a class="list-group-item" href="../usuario/ConsultarPerfil.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
                 <i class="las la-address-card "></i><span>Perfil</span></a>
 
-                 <a class="list-group-item" href="../medicamento/consultarMedicamentos.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
-                <i class="las la-capsules"></i><span>Medicamentos</span></a>
+                 <a class="list-group-item" href="../medicamento/verMedicamento.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-capsules"></i><span>Ver medicamentos</span></a>
+
+                
 
                   <hr class="divider">
             </ul>
       </div>';
 
-
+                                                  //si es administrador
   } else {
     echo ' 
       <div class="side-nav">
@@ -144,6 +147,9 @@ function menu()
 
                 <a class="list-group-item" href="../usuario/consultarUsuarios.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
                 <i class="las la-address-card "></i><span>Administrar Usuarios</span></a>
+
+                 <a class="list-group-item" href="../medicamento/consultarMedicamentos.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
+                <i class="las la-capsules"></i><span>Medicamentos</span></a>
                 
                 <a class="list-group-item" href="../usuario/ConsultarPerfil.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
                 <i class="las la-address-card "></i><span>Perfil</span></a>

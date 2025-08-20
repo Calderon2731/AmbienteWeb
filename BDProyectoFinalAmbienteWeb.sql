@@ -102,7 +102,7 @@ CREATE TABLE `tmedicamento` (
 
 LOCK TABLES `tmedicamento` WRITE;
 /*!40000 ALTER TABLE `tmedicamento` DISABLE KEYS */;
-INSERT INTO `tmedicamento` VALUES (1,'Tabcin','Tabcin','300 mg','Cápsulas','2026-06-30','PharmaCorp S.A.',12,_binary '','/AmbienteWeb/views/ImagenMedicamentos/tabcin.png'),(2,'Acetaminofén','Acetaminofén','500 mg','tabletas','2027-02-18','MediFarm S.A',300,_binary '','/AmbienteWeb/views/ImagenMedicamentos/Acetaminofen.png'),(3,'Loratadina','Loratadina','400 mg','Tabletas','2026-06-30','PharmaCorp S.A.',30,_binary '','/AmbienteWeb/views/ImagenMedicamentos/Loratadina.png'),(4,'Mucosolvan','Mucosolvan','15 mg','liquido','2026-06-30','PharmaCorp S.A.',30,_binary '','/AmbienteWeb/views/ImagenMedicamentos/image.png');
+INSERT INTO `tmedicamento` VALUES (1,'Tabcin','Tabcin','300 mg','Cápsulas','2026-06-30','PharmaCorp S.A.',12,_binary '','/AmbienteWeb/views/ImagenMedicamentos/tabcin.png'),(2,'Acetaminofén','Acetaminofén','500 mg','tabletas','2027-02-18','MediFarm S.A',300,_binary '\0','/AmbienteWeb/views/ImagenMedicamentos/Acetaminofen.png'),(3,'Loratadina','Loratadina','400 mg','Tabletas','2026-06-30','PharmaCorp S.A.',30,_binary '','/AmbienteWeb/views/ImagenMedicamentos/Loratadina.png'),(4,'Mucosolvan','Mucosolvan','15 mg','liquido','2026-06-30','PharmaCorp S.A.',30,_binary '','/AmbienteWeb/views/ImagenMedicamentos/image.png');
 /*!40000 ALTER TABLE `tmedicamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,7 +210,7 @@ CREATE TABLE `tusuario` (
 
 LOCK TABLES `tusuario` WRITE;
 /*!40000 ALTER TABLE `tusuario` DISABLE KEYS */;
-INSERT INTO `tusuario` VALUES (1,'MELISSA BONILLA BONILLA','melissa@gmail.com','119390318','G0BIWEJI',1,_binary ''),(2,'KENDALL ESTEBAN CALDERON ACUÑA','kendall@gmail.com','119300547','9092',2,_binary ''),(6,'JOSTHYN STEVEN UMAÑA SALAS','josthyn4899@gmail.com','402430812','Salas.4899',1,_binary '');
+INSERT INTO `tusuario` VALUES (1,'MELISSA BONILLA BONILLA','melissa@gmail.com','119390318','123',1,_binary ''),(2,'KENDALL ESTEBAN CALDERON ACUÑA','kendall@gmail.com','119300547','9092',2,_binary ''),(6,'JOSTHYN STEVEN UMAÑA SALAS','josthyn4899@gmail.com','402430812','Salas.4899',1,_binary '');
 /*!40000 ALTER TABLE `tusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -820,4 +820,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-20  2:09:21
+-- Dump completed on 2025-08-20 16:55:26

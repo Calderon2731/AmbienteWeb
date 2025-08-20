@@ -26,7 +26,10 @@
         $_SESSION["IdRol"] = $datos["IdRol"];
         $_SESSION["NombreRol"] = $datos["NombreRol"];
 
-        header("Location: ../../views/Home/Principal.php");
+            header("Location: ../../views/Home/Principal.php");
+       
+        
+        
     }
     else{
         
