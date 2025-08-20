@@ -133,10 +133,15 @@ function menu()
                   <hr class="divider">
             </ul>
       </div>';
+<<<<<<< Updated upstream
 
 
   } else {
     echo ' 
+=======
+          }else{
+            echo' 
+>>>>>>> Stashed changes
       <div class="side-nav">
       <ul class="list-group list-group-flush">
                 <a class="list-group-item" href="../Home/consultarPacientes.php" data-toggle="tooltip" data-placement="bottom" title="Perfil">
