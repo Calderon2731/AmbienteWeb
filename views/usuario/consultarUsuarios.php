@@ -1,8 +1,8 @@
 <?php
 include_once $_SERVER["DOCUMENT_ROOT"] . '/AmbienteWeb/views/layoutInterno.php';
 include_once $_SERVER["DOCUMENT_ROOT"]."/AmbienteWeb/Controllers/UsuarioController.php";
-
- //$resultado = consultarUsuarios();
+  
+   $resultado = ConsultarUsuarios();
   
 ?>
 
@@ -24,8 +24,8 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/AmbienteWeb/Controllers/UsuarioControll
     <div class="side-nav">
             <ul class="list-group list-group-flush">
       
-                <a class="list-group-item" href="../Home/registrarPaciente.php">
-                <i class="las la-address-card "></i><span>Agregar</span></a>
+                <a class="list-group-item" href="../Home/Principal.php">
+                <i class="las la-address-card "></i><span>Menu</span></a>
                 
                 <a class="list-group-item" href="../usuario/ConsultarPerfil.php">
                 <i class="las la-address-card "></i><span>Perfil</span></a>
@@ -49,43 +49,40 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/AmbienteWeb/Controllers/UsuarioControll
             <table id="tablaPacientes" class="table table-hover table-responsive-lg">
               <thead>
                 <tr>
-                  <th>ID paciente</th>
-                  <th>Nombre</th>
-                  <th>edad</th>          
-                  <th>diagnostico</th>
-                  <th>fecha</th>
+                  <th>ID</th>
+                  <th>Identificacion</th>
+                  <th>Nombre</th>          
+                  <th>Correo</th>
+                  <th>Rol</th>
+                  <th>Estado</th>
                   
                 </tr>
               </thead>
               <tbody>
                 <?php
-                    //echo function_exists('consultarPaciente') ? "✅ La función está disponible" : "❌ No existe la función";
-
-                  $resultado = consultarPaciente();
+                
                   while($fila = mysqli_fetch_array($resultado))
                   {
-                    $id = $fila["IdPaciente"];
-                    $nombre = $fila["NombrePaciente"];
-                    $edad = $fila["edadPaciente"];
-                    $diagnostico = $fila["diagnostico"];
-                    $fecha = $fila["fecha"];
-
                     echo "<tr>";
-                    echo"<td>".$id."</td>";
-                    echo "<td>".$nombre." </td>";
-                    echo "<td>".$edad." </td>";
-                    echo "<td> ".$diagnostico."</td>";
-                    echo "<td>".$fecha." </td>";
+                    echo"<td>".$fila["IdUsuario"]."</td>";
+                    echo "<td>".$fila["Identificacion"]." </td>";
+                    echo "<td>".$fila["Nombre"]." </td>";
+                    echo "<td> ".$fila["Correo"]."</td>";
+                    echo "<td>".$fila["NombreRol"]." </td>";
+                    echo  "<td>".$fila["EstadoDescripcion"]." </td>";
                     echo "</tr>";
-
-                    echo'<td>
-
-                            
-                    <a href="actualizarPaciente.php?q=' . $fila["IdPaciente"] . '" class="btn">
-                    <i class="las la-edit" style="font-size:1.5em;"></i>
-                    </a>
+                     echo '<td>
+                                                        
+                     <a class="btn btnAbrirModal" data-toggle="modal" data-target="#CambiarEstadoUsuario"
+                      data-id="' . $fila["IdUsuario"] . '" data-nombre="' . $fila["Nombre"] . '">
+                      <i class="las ' . ($fila["Estado"] ? 'la-toggle-on text-success' : 'la-toggle-off text-danger') . '" style="font-size:1.5em;"></i>
+                      </a>
+                                                            
+                     <a href="actualizarUsuario.php?q=' . $fila["IdUsuario"] . '" class="btn">
+                     <i class="la la-edit" style="font-size:1.5em;"></i>
+                     </a>
                     </td>';
-                    echo "</tr>";
+                     echo "</tr>";
                 }?> 
                           
               </tbody>
@@ -97,13 +94,57 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/AmbienteWeb/Controllers/UsuarioControll
       </div>
     </div>
     </main>
+
+     <!-- Modal -->
+    <div class="modal fade" id="CambiarEstadoUsuario" tabindex="-1" role="dialog" aria-labelledby="tituloModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tituloModal">Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <form action="" method="POST">
+                    <div class="modal-body">
+                        
+                        <input type="hidden" id="IdUsuario" name="IdUsuario" class="form-control">
+                        <Label id="lblNombre" name="lblNombre"></Label>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="btnCambiarEstadoUsuario" name="btnCambiarEstadoUsuario" class="btn btn-primary">Procesar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
   </body>
 
   <?php
   addJS();
   ?>
+
   <script>
- 
+    $(function() {
+
+        new DataTable('#tablaDatos', {
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/2.3.2/i18n/es-ES.json',
+            },
+        });
+
+        $('.btnAbrirModal').on('click', function () {
+            const id = $(this).data('id');
+            const nombre = $(this).data('nombre');
+
+            $('#IdUsuario').val(id);
+            $('#lblNombre').text("¿Desea cambiar el estado del usuario " + nombre + "?");
+        });
+
+    });
   </script>
   
 </html>
